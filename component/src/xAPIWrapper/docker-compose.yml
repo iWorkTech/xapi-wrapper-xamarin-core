@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  tinccan.xapiwrapper.docs:
+    image: tinccan.xapiwrapper.docs
+    build:
+      context: .
+      dockerfile: ../TincCan.xAPIWrapper.Docs/Dockerfile
