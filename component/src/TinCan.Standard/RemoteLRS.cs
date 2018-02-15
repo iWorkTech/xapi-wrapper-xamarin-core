@@ -648,7 +648,7 @@ namespace TinCan.Standard
                 Resource = "about"
             };
 
-            var res = await MakeAsyncRequest(req);
+            var res = await MakeAsyncRequest(req).ConfigureAwait(false);
             if (res.Status != HttpStatusCode.OK)
             {
                 r.Success = false;
@@ -690,7 +690,7 @@ namespace TinCan.Standard
             req.ContentType = "application/json";
             req.Content = Encoding.UTF8.GetBytes(statement.ToJSON(Version));
 
-            var res = await MakeAsyncRequest(req);
+            var res = await MakeAsyncRequest(req).ConfigureAwait(false);
             if (statement.ID == null)
             {
                 if (res.Status != HttpStatusCode.OK)
