@@ -56,7 +56,7 @@ namespace TinCan.Standard.Tests
         [Fact]
         public void TestJObjectCtr()
         {
-            var mbox = "mailto:ashedge@hotmail.com";
+            var mbox = "mailto:so_moni@hotmail.com";
 
             var cfg = new JObject {{"mbox", mbox}};
 
@@ -71,7 +71,7 @@ namespace TinCan.Standard.Tests
         [Fact]
         public void TestStringOfJSONCtr()
         {
-            var mbox = "mailto:ashedge@hotmail.com";
+            var mbox = "mailto:so_moni@hotmail.com";
 
             var json = "{\"mbox\":\"" + mbox + "\"}";
             var strOfJson = new StringOfJSON(json);

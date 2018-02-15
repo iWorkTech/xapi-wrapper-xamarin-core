@@ -77,7 +77,11 @@ namespace TinCan.Standard.Tests
         /// </summary>
         static Support()
         {
-            Agent = new Agent { Mbox = "mailto:ashedge@hotmail.com" };
+            Agent = new Agent { Mbox = "mailto:so_moni@hotmail.com", Name = "So Moni", Account = new AgentAccount
+            {
+                Name = "So Moni",
+                HomePage = new Uri("http://tincanapi.com/")
+            }};
 
             Verb = new Verb("http://adlnet.gov/expapi/verbs/experienced") { Display = new LanguageMap() };
             Verb.Display.Add("en-US", "experienced");

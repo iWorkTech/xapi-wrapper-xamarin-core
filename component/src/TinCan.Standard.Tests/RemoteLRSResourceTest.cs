@@ -25,6 +25,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
@@ -34,10 +35,9 @@ using TinCan.Standard.Documents;
 
 namespace TinCan.Standard.Tests
 {
-    //// <summary>
+    /// <summary>
     /// Class RemoteLRSResourceTest.
     /// </summary>
-    
     public class RemoteLRSResourceTest
     {
         /// <summary>
@@ -52,10 +52,15 @@ namespace TinCan.Standard.Tests
             // so are okay to include in the repository, if you wish to have access to the
             // results of the test suite then supply your own endpoint, username, and password
             //
+            //_lrs = new RemoteLRS(
+            //    "https://lrs.adlnet.gov/xapi/",
+            //    "Nja986GYE1_XrWMmFUE",
+            //    "Bd9lDr1kjaWWY6RID_4"
+            //);
             _lrs = new RemoteLRS(
-                "https://lrs.adlnet.gov/xapi/",
-                "Nja986GYE1_XrWMmFUE",
-                "Bd9lDr1kjaWWY6RID_4"
+                "https://trial-lrs.yetanalytics.io/xapi",
+                "ae71f2a120eff211904994b8bfbc7328",
+                "97ebd26e2ac39f1c408ecb5efd2ea915"
             );
         }
 
@@ -81,7 +86,7 @@ namespace TinCan.Standard.Tests
         public void TestAboutFailure()
         {
             //_lrs.Endpoint = new Uri("http://cloud.scorm.com/tc/3TQLAI9/sandbox/");
-            _lrs.Endpoint = new Uri("https://lrs.adlnet.gov/");
+            _lrs.Endpoint = new Uri("https://trial-lrs.yetanalytics.io/xapii");
 
             var lrsRes = _lrs.About();
             Assert.False(lrsRes.Success);
@@ -104,7 +109,7 @@ namespace TinCan.Standard.Tests
         [Fact]
         public async Task TestClearStateAsync()
         {
-            var lrsRes = await _lrs.ClearStateAsync(Support.Activity, Support.Agent);
+            var lrsRes = await _lrs.ClearStateAsync(Support.Activity, Support.Agent).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -136,7 +141,7 @@ namespace TinCan.Standard.Tests
                 ID = Guid.NewGuid().ToString()
             };
 
-            var lrsRes = await _lrs.DeleteActivityProfileAsync(doc);
+            var lrsRes = await _lrs.DeleteActivityProfileAsync(doc).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -168,7 +173,7 @@ namespace TinCan.Standard.Tests
                 ID = Guid.NewGuid().ToString()
             };
 
-            var lrsRes = await _lrs.DeleteAgentProfileAsync(doc);
+            var lrsRes = await _lrs.DeleteAgentProfileAsync(doc).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -202,7 +207,7 @@ namespace TinCan.Standard.Tests
                 ID = Guid.NewGuid().ToString()
             };
 
-            var lrsRes = await _lrs.DeleteStateAsync(doc);
+            var lrsRes = await _lrs.DeleteStateAsync(doc).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -238,10 +243,10 @@ namespace TinCan.Standard.Tests
                 Limit = 2
             };
 
-            var queryRes = await _lrs.QueryStatementsAsync(query);
+            var queryRes = await _lrs.QueryStatementsAsync(query).ConfigureAwait(false);
             if (queryRes.Success && queryRes.Content.More != null)
             {
-                var moreRes = _lrs.MoreStatements(queryRes.Content);
+                var moreRes = await _lrs.MoreStatementsAsync(queryRes.Content).ConfigureAwait(false);
                 Assert.True(queryRes.Success);
                 Assert.NotNull(moreRes);
                 Console.WriteLine("TestMoreStatementsAsync - statement count: " + queryRes.Content.Statements.Count);
@@ -287,7 +292,7 @@ namespace TinCan.Standard.Tests
                 Limit = 10
             };
 
-            var lrsRes = await _lrs.QueryStatementsAsync(query);
+            var lrsRes = await _lrs.QueryStatementsAsync(query).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
             Console.WriteLine("TestQueryStatements - statement count: " + lrsRes.Content.Statements.Count);
         }
@@ -309,7 +314,7 @@ namespace TinCan.Standard.Tests
         [Fact]
         public async Task TestRetrieveActivityProfileAsync()
         {
-            var lrsRes = await _lrs.RetrieveActivityProfileAsync("test", Support.Activity);
+            var lrsRes = await _lrs.RetrieveActivityProfileAsync("test", Support.Activity).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
             Assert.IsType<ActivityProfileDocument>(lrsRes.Content);
         }
@@ -330,7 +335,7 @@ namespace TinCan.Standard.Tests
         [Fact]
         public async Task TestRetrieveActivityProfileIdsAsync()
         {
-            var lrsRes = await _lrs.RetrieveActivityProfileIdsAsync(Support.Activity);
+            var lrsRes = await _lrs.RetrieveActivityProfileIdsAsync(Support.Activity).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -351,7 +356,7 @@ namespace TinCan.Standard.Tests
         [Fact]
         public async Task TestRetrieveAgentProfileAsync()
         {
-            var lrsRes = await _lrs.RetrieveAgentProfileAsync("test", Support.Agent);
+            var lrsRes = await _lrs.RetrieveAgentProfileAsync("test", Support.Agent).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
             Assert.IsType<AgentProfileDocument>(lrsRes.Content);
         }
@@ -372,7 +377,7 @@ namespace TinCan.Standard.Tests
         [Fact]
         public async Task TestRetrieveAgentProfileIdsAsync()
         {
-            var lrsRes = await _lrs.RetrieveAgentProfileIdsAsync(Support.Agent);
+            var lrsRes = await _lrs.RetrieveAgentProfileIdsAsync(Support.Agent).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -393,7 +398,7 @@ namespace TinCan.Standard.Tests
         [Fact]
         public async Task TestRetrieveStateAsync()
         {
-            var lrsRes = await _lrs.RetrieveStateAsync("test", Support.Activity, Support.Agent);
+            var lrsRes = await _lrs.RetrieveStateAsync("test", Support.Activity, Support.Agent).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
             Assert.IsType<StateDocument>(lrsRes.Content);
         }
@@ -414,7 +419,7 @@ namespace TinCan.Standard.Tests
         [Fact]
         public async Task TestRetrieveStateIdsAsync()
         {
-            var lrsRes = await _lrs.RetrieveStateIdsAsync(Support.Activity, Support.Agent);
+            var lrsRes = await _lrs.RetrieveStateIdsAsync(Support.Activity, Support.Agent).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -454,10 +459,10 @@ namespace TinCan.Standard.Tests
             statement.Context = Support.Context;
             statement.Result = Support.Result;
 
-            var saveRes = _lrs.SaveStatement(statement);
+            var saveRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
             if (!saveRes.Success) return;
             if (saveRes.Content.ID == null) return;
-            var retRes = await _lrs.RetrieveStatementAsync(saveRes.Content.ID.Value);
+            var retRes = await _lrs.RetrieveStatementAsync(saveRes.Content.ID.Value).ConfigureAwait(false);
             Assert.True(retRes.Success);
             Console.WriteLine("TestRetrieveStatement - statement: " + retRes.Content.ToJSON(true));
         }
@@ -472,7 +477,11 @@ namespace TinCan.Standard.Tests
             {
                 Activity = Support.Activity,
                 ID = Guid.NewGuid().ToString(),
-                Content = Encoding.UTF8.GetBytes("Test value")
+                Content = Encoding.UTF8.GetBytes("Test value"), 
+                Etag = "1234567890", 
+                ContentType = "text", 
+                Timestamp = DateTime.Now
+          
             };
 
             var lrsRes = _lrs.SaveActivityProfile(doc);
@@ -489,10 +498,13 @@ namespace TinCan.Standard.Tests
             {
                 Activity = Support.Activity,
                 ID = Guid.NewGuid().ToString(),
-                Content = Encoding.UTF8.GetBytes("Test value")
+                Content = Encoding.UTF8.GetBytes("Test value"),
+                Etag = "1234567890", 
+                ContentType = "text", 
+                Timestamp = DateTime.Now
             };
 
-            var lrsRes = await _lrs.SaveActivityProfileAsync(doc);
+            var lrsRes = await _lrs.SaveActivityProfileAsync(doc).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -506,7 +518,10 @@ namespace TinCan.Standard.Tests
             {
                 Agent = Support.Agent,
                 ID = Guid.NewGuid().ToString(),
-                Content = Encoding.UTF8.GetBytes("Test value")
+                Content = Encoding.UTF8.GetBytes("Test value"),
+                Etag = "1234567890", 
+                ContentType = "text", 
+                Timestamp = DateTime.Now
             };
 
             var lrsRes = _lrs.SaveAgentProfile(doc);
@@ -522,11 +537,14 @@ namespace TinCan.Standard.Tests
             var doc = new AgentProfileDocument
             {
                 Agent = Support.Agent,
-                ID = Guid.NewGuid().ToString(),
-                Content = Encoding.UTF8.GetBytes("Test value")
+               ID = Guid.NewGuid().ToString(),
+                Content = Encoding.UTF8.GetBytes("Test value"),
+                Etag = "1234567890", 
+                ContentType = "text", 
+                Timestamp = DateTime.Now
             };
 
-            var lrsRes = await _lrs.SaveAgentProfileAsync(doc);
+            var lrsRes = await _lrs.SaveAgentProfileAsync(doc).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -562,7 +580,7 @@ namespace TinCan.Standard.Tests
                 Content = Encoding.UTF8.GetBytes("Test value")
             };
 
-            var lrsRes = await _lrs.SaveStateAsync(doc);
+            var lrsRes = await _lrs.SaveStateAsync(doc).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -598,7 +616,7 @@ namespace TinCan.Standard.Tests
                 Target = Support.Activity
             };
 
-            var lrsRes = await _lrs.SaveStatementAsync(statement);
+            var lrsRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
             Assert.Equal(statement, lrsRes.Content);
             Assert.NotNull(lrsRes.Content.ID);
@@ -655,7 +673,7 @@ namespace TinCan.Standard.Tests
 
             var statements = new List<Statement> { statement1, statement2 };
 
-            var lrsRes = await _lrs.SaveStatementsAsync(statements);
+            var lrsRes = await _lrs.SaveStatementsAsync(statements).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
             // TODO: check statements match and ids not null
         }
@@ -689,7 +707,7 @@ namespace TinCan.Standard.Tests
             statement.Verb = Support.Verb;
             statement.Target = Support.StatementRef;
 
-            var lrsRes = await _lrs.SaveStatementAsync(statement);
+            var lrsRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
             Assert.Equal(statement, lrsRes.Content);
         }
@@ -727,7 +745,7 @@ namespace TinCan.Standard.Tests
 
             Console.WriteLine(statement.ToJSON(true));
 
-            var lrsRes = await _lrs.SaveStatementAsync(statement);
+            var lrsRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
             Assert.Equal(statement, lrsRes.Content);
         }
@@ -761,7 +779,7 @@ namespace TinCan.Standard.Tests
             statement.Verb = Support.Verb;
             statement.Target = Support.Activity;
 
-            var lrsRes = await _lrs.SaveStatementAsync(statement);
+            var lrsRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
             Assert.Equal(statement, lrsRes.Content);
         }
@@ -787,7 +805,7 @@ namespace TinCan.Standard.Tests
         public async Task TestVoidStatementAsync()
         {
             var toVoid = Guid.NewGuid();
-            var lrsRes = await _lrs.VoidStatementAsync(toVoid, Support.Agent);
+            var lrsRes = await _lrs.VoidStatementAsync(toVoid, Support.Agent).ConfigureAwait(false);
 
             Assert.True(lrsRes.Success, "LRS response successful");
             Assert.Equal(new Uri("http://adlnet.gov/expapi/verbs/voided"), lrsRes.Content.Verb.ID);
