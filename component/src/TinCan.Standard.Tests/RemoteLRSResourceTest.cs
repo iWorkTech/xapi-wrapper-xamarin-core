@@ -537,7 +537,7 @@ namespace TinCan.Standard.Tests
             var doc = new AgentProfileDocument
             {
                 Agent = Support.Agent,
-               ID = Guid.NewGuid().ToString(),
+                ID = Guid.NewGuid().ToString(),
                 Content = Encoding.UTF8.GetBytes("Test value"),
                 Etag = "1234567890", 
                 ContentType = "text", 
@@ -613,7 +613,7 @@ namespace TinCan.Standard.Tests
             {
                 Actor = Support.Agent,
                 Verb = Support.Verb,
-                Target = Support.Activity
+                Target = Support.Activity,
             };
 
             var lrsRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
@@ -621,6 +621,48 @@ namespace TinCan.Standard.Tests
             Assert.Equal(statement, lrsRes.Content);
             Assert.NotNull(lrsRes.Content.ID);
         }
+
+        /// <summary>
+        /// Tests the save statement.
+        /// </summary>
+        //[Fact]
+        //public async Task TestSaveStatementWithContextAsync()
+        //{
+        //    var statement = new Statement
+        //    {
+        //        Actor = Support.Agent,
+        //        Verb = Support.Verb,
+        //        Target = Support.Parent,
+        //        Context = Support.Context,
+        //        Result = Support.Result, 
+        //        Version = TCAPIVersion.V103
+        //    };
+
+        //    var lrsRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
+        //    Assert.True(lrsRes.Success);
+        //    Assert.Equal(statement, lrsRes.Content);
+        //    Assert.NotNull(lrsRes.Content.ID);
+        //}
+
+        /// <summary>
+        /// Tests the save statement.
+        /// </summary>
+        //[Fact]
+        //public async Task TestSaveStatementWithResultAsync()
+        //{
+        //    var statement = new Statement
+        //    {
+        //        Actor = Support.Agent,
+        //        Verb = Support.Verb,
+        //        Target = Support.Activity,
+        //        Result = Support.Result
+        //    };
+
+        //    var lrsRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
+        //    Assert.True(lrsRes.Success);
+        //    Assert.Equal(statement, lrsRes.Content);
+        //    Assert.NotNull(lrsRes.Content.ID);
+        //}
 
         /// <summary>
         /// Tests the save statements.
