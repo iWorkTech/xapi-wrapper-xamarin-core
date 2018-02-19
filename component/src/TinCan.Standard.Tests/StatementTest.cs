@@ -62,7 +62,7 @@ namespace xAPI.Standard.Tests
             Assert.Null(obj.Timestamp);
             Assert.Null(obj.Stored);
 
-            Assert.Equal("{\"version\":\"1.0.1\"}", obj.ToJSON());
+            Assert.Equal("{\"version\":\"1.0.3\"}", obj.ToJSON());
         }
 
         /// <summary>
