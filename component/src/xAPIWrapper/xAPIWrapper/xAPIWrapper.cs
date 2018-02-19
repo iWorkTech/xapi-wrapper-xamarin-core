@@ -63,7 +63,7 @@ namespace xAPIWrapper
         /// <param name="password">The password.</param>
         public void Init(string endpoint, string username, string password)
         {
-            _endpoint = string.IsNullOrWhiteSpace(username) ? "https://lrs.adlnet.gov/xAPI/" : endpoint;
+            _endpoint = string.IsNullOrWhiteSpace(endpoint) ? "https://lrs.adlnet.gov/xAPI/" : endpoint;
             _username = string.IsNullOrWhiteSpace(username) ? "Nja986GYE1_XrWMmFUE" : username;
             _password = string.IsNullOrWhiteSpace(password) ? "Bd9lDr1kjaWWY6RID_4" : password;
            
@@ -167,19 +167,11 @@ namespace xAPIWrapper
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
         public async Task<LRSResponse> SendStatement(Agent agent, Verb verb, IStatementTarget target)
         {
-            var authority = new Agent
-            {
-                Mbox = "mailto:admin@adl.net",
-                Account = new AgentAccount { Name = "ADL Administrator" },
-                Name = "Admin"
-            };
-
             var statement = new Statement
             {
-                Version = TCAPIVersion.Latest(),
+                Version = xAPIVersion.Latest(),
                 Actor = agent,
                 Target = target,
-                Authority = authority,
                 Verb = verb
             };
 

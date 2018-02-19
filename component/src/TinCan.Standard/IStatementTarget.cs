@@ -45,6 +45,6 @@ namespace xAPI.Standard
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>JObject.</returns>
-        JObject ToJObject(TCAPIVersion version);
+        JObject ToJObject(xAPIVersion version);
     }
 }

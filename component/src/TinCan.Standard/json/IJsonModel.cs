@@ -39,7 +39,7 @@ namespace xAPI.Standard.Json
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>JObject.</returns>
-        JObject ToJObject(TCAPIVersion version);
+        JObject ToJObject(xAPIVersion version);
         /// <summary>
         /// To the j object.
         /// </summary>
@@ -52,7 +52,7 @@ namespace xAPI.Standard.Json
         /// <param name="version">The version.</param>
         /// <param name="pretty">if set to <c>true</c> [pretty].</param>
         /// <returns>System.String.</returns>
-        string ToJSON(TCAPIVersion version, bool pretty = false);
+        string ToJSON(xAPIVersion version, bool pretty = false);
         /// <summary>
         /// To the json.
         /// </summary>

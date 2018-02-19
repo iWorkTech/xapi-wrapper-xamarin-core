@@ -79,7 +79,7 @@ namespace xAPI.Standard
             }
             if (jobj["version"] != null)
             {
-                Version = (TCAPIVersion) jobj.Value<string>("version");
+                Version = (xAPIVersion) jobj.Value<string>("version");
             }
 
             //
@@ -111,14 +111,14 @@ namespace xAPI.Standard
         /// Gets or sets the version.
         /// </summary>
         /// <value>The version.</value>
-        public TCAPIVersion Version { get; set; }
+        public xAPIVersion Version { get; set; }
 
         /// <summary>
         /// To the j object.
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>JObject.</returns>
-        public override JObject ToJObject(TCAPIVersion version)
+        public override JObject ToJObject(xAPIVersion version)
         {
             var result = base.ToJObject(version);
 

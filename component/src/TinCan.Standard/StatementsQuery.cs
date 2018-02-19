@@ -116,7 +116,7 @@ namespace xAPI.Standard
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>Dictionary&lt;System.String, System.String&gt;.</returns>
-        public Dictionary<string, string> ToParameterMap(TCAPIVersion version)
+        public Dictionary<string, string> ToParameterMap(xAPIVersion version)
         {
             var result = new Dictionary<string, string>();
 

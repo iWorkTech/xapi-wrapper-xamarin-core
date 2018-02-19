@@ -102,7 +102,7 @@ namespace xAPI.Standard
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>JObject.</returns>
-        public override JObject ToJObject(TCAPIVersion version)
+        public override JObject ToJObject(xAPIVersion version)
         {
             var result = new JObject();
             if (ID != null)
