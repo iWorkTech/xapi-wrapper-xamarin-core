@@ -27,7 +27,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace TinCan.Standard.LRSResponses
+namespace xAPI.Standard.LRSResponses
 {
     /// <summary>
     /// Class ProfileKeysLRSResponse.

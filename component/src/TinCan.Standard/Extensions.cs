@@ -26,11 +26,11 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
-using TinCan.Standard.Json;
+using xAPI.Standard.Json;
 
 #endregion
 
-namespace TinCan.Standard
+namespace xAPI.Standard
 {
     /// <summary>
     /// Class Extensions.

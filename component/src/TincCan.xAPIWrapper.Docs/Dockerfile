@@ -7,7 +7,7 @@ WORKDIR /src
 COPY *.sln ./
 COPY ../TincCan.xAPIWrapper.Docs/TincCan.xAPIWrapper.Docs.csproj ../TincCan.xAPIWrapper.Docs/
 COPY xAPIWrapper/xAPIWrapper.csproj xAPIWrapper/
-COPY ../TinCan.Standard/TinCan.Standard.csproj ../TinCan.Standard/
+COPY ../xAPI.Standard/xAPI.Standard.csproj ../xAPI.Standard/
 RUN dotnet restore
 COPY . .
 WORKDIR /src/../TincCan.xAPIWrapper.Docs

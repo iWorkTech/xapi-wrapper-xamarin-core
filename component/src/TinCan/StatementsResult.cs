@@ -25,11 +25,11 @@
 
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
-using TinCan.Json;
+using xAPI.Json;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class StatementsResult.

@@ -21,7 +21,7 @@
 
 #endregion
 
-namespace TinCan.Standard.LRSResponses
+namespace xAPI.Standard.LRSResponses
 {
     /// <summary>
     /// Class StatementsResultLRSResponse.

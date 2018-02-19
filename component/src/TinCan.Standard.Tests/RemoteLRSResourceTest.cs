@@ -29,11 +29,11 @@ using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
-using TinCan.Standard.Documents;
+using xAPI.Standard.Documents;
 
 #endregion
 
-namespace TinCan.Standard.Tests
+namespace xAPI.Standard.Tests
 {
     /// <summary>
     /// Class RemoteLRSResourceTest.

@@ -27,12 +27,12 @@ using System;
 
 #endregion
 
-namespace TinCan.Documents
+namespace xAPI.Documents
 {
     /// <summary>
     /// Class StateDocument.
     /// </summary>
-    /// <seealso cref="TinCan.Documents.Document" />
+    /// <seealso cref="xAPI.Documents.Document" />
     public class StateDocument : Document
     {
         /// <summary>

@@ -21,12 +21,12 @@
 
 #endregion
 
-namespace TinCan.LRSResponses
+namespace xAPI.LRSResponses
 {
     /// <summary>
     /// Class StatementLRSResponse.
     /// </summary>
-    /// <seealso cref="TinCan.LRSResponses.LRSResponse" />
+    /// <seealso cref="xAPI.LRSResponses.LRSResponse" />
     public class StatementLRSResponse : LRSResponse
     {
         /// <summary>

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TinCan.Standard;
-using TinCan.Standard.Documents;
-using TinCan.Standard.LRSResponses;
+using xAPI.Standard;
+using xAPI.Standard.Documents;
+using xAPI.Standard.LRSResponses;
 
 namespace xAPIWrapper
 {

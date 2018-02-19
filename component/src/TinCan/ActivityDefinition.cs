@@ -25,16 +25,16 @@
 
 using System;
 using Newtonsoft.Json.Linq;
-using TinCan.Json;
+using xAPI.Json;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class ActivityDefinition.
     /// </summary>
-    /// <seealso cref="TinCan.Json.JsonModel" />
+    /// <seealso cref="xAPI.Json.JsonModel" />
     public class ActivityDefinition : JsonModel
     {
         //public InteractionType interactionType { get; set; }

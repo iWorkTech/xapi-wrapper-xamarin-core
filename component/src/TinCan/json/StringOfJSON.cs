@@ -27,7 +27,7 @@ using Newtonsoft.Json.Linq;
 
 #endregion
 
-namespace TinCan.Json
+namespace xAPI.Json
 {
     /// <summary>
     /// Class StringOfJSON.

@@ -26,16 +26,16 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
-using TinCan.Json;
+using xAPI.Json;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class Group.
     /// </summary>
-    /// <seealso cref="TinCan.Agent" />
+    /// <seealso cref="xAPI.Agent" />
     public class Group : Agent
     {
         /// <summary>

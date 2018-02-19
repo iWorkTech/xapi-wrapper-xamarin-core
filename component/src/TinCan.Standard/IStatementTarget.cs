@@ -27,7 +27,7 @@ using Newtonsoft.Json.Linq;
 
 #endregion
 
-namespace TinCan.Standard
+namespace xAPI.Standard
 {
     /// <summary>
     /// Interface StatementTarget

@@ -27,7 +27,7 @@ using Newtonsoft.Json.Linq;
 
 #endregion
 
-namespace TinCan.Standard.Json
+namespace xAPI.Standard.Json
 {
     /// <summary>
     /// Interface IJsonModel

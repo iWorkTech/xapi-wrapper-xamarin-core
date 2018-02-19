@@ -25,16 +25,16 @@
 
 using System;
 using Newtonsoft.Json.Linq;
-using TinCan.Json;
+using xAPI.Json;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class Verb.
     /// </summary>
-    /// <seealso cref="TinCan.Json.JsonModel" />
+    /// <seealso cref="xAPI.Json.JsonModel" />
     public class Verb : JsonModel
     {
         /// <summary>

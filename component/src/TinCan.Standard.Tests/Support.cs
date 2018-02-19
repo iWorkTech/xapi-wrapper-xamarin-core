@@ -28,7 +28,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace TinCan.Standard.Tests
+namespace xAPI.Standard.Tests
 {
     /// <summary>
     /// Class Support.

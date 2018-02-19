@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TinCan.Standard;
-using TinCan.Standard.LRSResponses;
+using xAPI.Standard;
+using xAPI.Standard.LRSResponses;
 
 namespace xAPIWrapper
 {

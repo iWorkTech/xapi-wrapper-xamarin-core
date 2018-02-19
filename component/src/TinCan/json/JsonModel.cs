@@ -28,12 +28,12 @@ using Newtonsoft.Json.Linq;
 
 #endregion
 
-namespace TinCan.Json
+namespace xAPI.Json
 {
     /// <summary>
     /// Class JsonModel.
     /// </summary>
-    /// <seealso cref="TinCan.Json.IJsonModel" />
+    /// <seealso cref="xAPI.Json.IJsonModel" />
     public abstract class JsonModel : IJsonModel
     {
         // TODO: rename methods to ToJObject and ToJSON

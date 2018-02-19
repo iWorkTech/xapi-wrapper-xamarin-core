@@ -26,12 +26,12 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TinCan.Standard.Documents;
-using TinCan.Standard.LRSResponses;
+using xAPI.Standard.Documents;
+using xAPI.Standard.LRSResponses;
 
 #endregion
 
-namespace TinCan.Standard
+namespace xAPI.Standard
 {
     /// <summary>
     ///     Interface ILRS

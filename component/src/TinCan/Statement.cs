@@ -25,16 +25,16 @@
 
 using System;
 using Newtonsoft.Json.Linq;
-using TinCan.Json;
+using xAPI.Json;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class Statement.
     /// </summary>
-    /// <seealso cref="TinCan.StatementBase" />
+    /// <seealso cref="xAPI.StatementBase" />
     public class Statement : StatementBase
     {
         // TODO: put in common location

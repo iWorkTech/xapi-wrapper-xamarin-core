@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TinCan.Standard\TinCan.Standard.csproj" />
+    <ProjectReference Include="..\TinCan.Standard\xAPI.Standard.csproj" />
   </ItemGroup>
 
 </Project>

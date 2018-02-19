@@ -28,7 +28,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace TinCan.Standard
+namespace xAPI.Standard
 {
     /// <summary>
     /// Class TCAPIVersion. This class cannot be inherited.

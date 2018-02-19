@@ -27,7 +27,7 @@ using Xunit;
 
 #endregion
 
-namespace TinCan.Standard.Tests
+namespace xAPI.Standard.Tests
 {
     /// <summary>
     ///     Class RemoteLRSTest.

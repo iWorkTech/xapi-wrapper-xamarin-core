@@ -21,12 +21,12 @@
 
 #endregion
 
-namespace TinCan.Documents
+namespace xAPI.Documents
 {
     /// <summary>
     /// Class AgentProfileDocument.
     /// </summary>
-    /// <seealso cref="TinCan.Documents.Document" />
+    /// <seealso cref="xAPI.Documents.Document" />
     public class AgentProfileDocument : Document
     {
         /// <summary>

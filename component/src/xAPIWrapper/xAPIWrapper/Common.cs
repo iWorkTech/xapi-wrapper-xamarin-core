@@ -1,4 +1,4 @@
-﻿namespace TinCan.xAPIWrapper
+﻿namespace xAPI.xAPIWrapper
 {
     internal class Common
     {

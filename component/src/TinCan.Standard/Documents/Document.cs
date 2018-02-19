@@ -27,7 +27,7 @@ using System;
 
 #endregion
 
-namespace TinCan.Standard.Documents
+namespace xAPI.Standard.Documents
 {
     /// <summary>
     /// Class Document.

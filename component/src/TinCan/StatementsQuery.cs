@@ -28,7 +28,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class StatementsQuery.

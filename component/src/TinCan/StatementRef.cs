@@ -25,17 +25,17 @@
 
 using System;
 using Newtonsoft.Json.Linq;
-using TinCan.Json;
+using xAPI.Json;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class StatementRef.
     /// </summary>
-    /// <seealso cref="TinCan.Json.JsonModel" />
-    /// <seealso cref="TinCan.IStatementTarget" />
+    /// <seealso cref="xAPI.Json.JsonModel" />
+    /// <seealso cref="xAPI.IStatementTarget" />
     public class StatementRef : JsonModel, IStatementTarget
     {
         /// <summary>

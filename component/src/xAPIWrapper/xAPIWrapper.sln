@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27110.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xAPIWrapper", "xAPIWrapper\xAPIWrapper.csproj", "{1E772BAD-30F4-4793-AC73-702D639F3A8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xAPIWrapper", "xAPIWrapper\xAPIWrapper.csproj", "{1E772BAD-30F4-4793-AC73-702D639F3A8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinCan", "..\TinCan\TinCan.csproj", "{FC1B28B2-467F-44B4-B739-A2DBF7F8F77C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xAPI", "..\TinCan\xAPI.csproj", "{FC1B28B2-467F-44B4-B739-A2DBF7F8F77C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinCan.Standard", "..\TinCan.Standard\TinCan.Standard.csproj", "{78491B47-15B6-42D0-BCB6-5E8EC6424BC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xAPI.Standard", "..\TinCan.Standard\xAPI.Standard.csproj", "{78491B47-15B6-42D0-BCB6-5E8EC6424BC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinCan.Standard.Tests", "..\TinCan.Standard.Tests\TinCan.Standard.Tests.csproj", "{C8403848-920E-4EFB-9795-5CCE99BCE007}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xAPI.Standard.Tests", "..\TinCan.Standard.Tests\xAPI.Standard.Tests.csproj", "{C8403848-920E-4EFB-9795-5CCE99BCE007}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TincCan.xAPIWrapper.Docs", "..\TincCan.xAPIWrapper.Docs\TincCan.xAPIWrapper.Docs.csproj", "{A8CBBDB9-B333-471E-9A1B-34160CFA89C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xAPIWrapper.Docs", "..\TincCan.xAPIWrapper.Docs\xAPIWrapper.Docs.csproj", "{A8CBBDB9-B333-471E-9A1B-34160CFA89C2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xAPIWrapper.Test.Driod", "..\xAPIWrapper.Test.Driod\xAPIWrapper.Test.Driod.csproj", "{68C2D413-7BD8-414A-9D88-EA5524FFD33F}"
 EndProject

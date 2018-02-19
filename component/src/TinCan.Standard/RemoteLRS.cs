@@ -30,20 +30,20 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
-using TinCan.Standard.Documents;
-using TinCan.Standard.Json;
-using TinCan.Standard.LRSResponses;
+using xAPI.Standard.Documents;
+using xAPI.Standard.Json;
+using xAPI.Standard.LRSResponses;
 
 #endregion
 
-namespace TinCan.Standard
+namespace xAPI.Standard
 {
     /// <inheritdoc />
     /// <summary>
     ///     Class RemoteLRS.
     /// </summary>
-    /// <seealso cref="T:TinCan.Standard.ILRS" />
-    /// <seealso cref="T:TinCan.Standard.ILRS" />
+    /// <seealso cref="T:xAPI.Standard.ILRS" />
+    /// <seealso cref="T:xAPI.Standard.ILRS" />
     public class RemoteLRS : ILRS
     {
         /// <summary>
@@ -69,7 +69,7 @@ namespace TinCan.Standard
 
         /// <inheritdoc />
         /// <summary>
-        ///     Initializes a new instance of the <see cref="T:TinCan.Standard.RemoteLRS" /> class.
+        ///     Initializes a new instance of the <see cref="T:xAPI.Standard.RemoteLRS" /> class.
         /// </summary>
         /// <param name="endpoint">The endpoint.</param>
         /// <param name="version">The version.</param>
@@ -82,7 +82,7 @@ namespace TinCan.Standard
 
         /// <inheritdoc />
         /// <summary>
-        ///     Initializes a new instance of the <see cref="T:TinCan.Standard.RemoteLRS" /> class.
+        ///     Initializes a new instance of the <see cref="T:xAPI.Standard.RemoteLRS" /> class.
         /// </summary>
         /// <param name="endpoint">The endpoint.</param>
         /// <param name="username">The username.</param>

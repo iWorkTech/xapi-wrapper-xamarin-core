@@ -30,18 +30,18 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
-using TinCan.Documents;
-using TinCan.Json;
-using TinCan.LRSResponses;
+using xAPI.Documents;
+using xAPI.Json;
+using xAPI.LRSResponses;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     ///     Class RemoteLRS.
     /// </summary>
-    /// <seealso cref="TinCan.ILRS" />
+    /// <seealso cref="xAPI.ILRS" />
     public class RemoteLRS : ILRS
     {
         /// <summary>

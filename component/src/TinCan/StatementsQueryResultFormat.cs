@@ -21,7 +21,7 @@
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class StatementsQueryResultFormat. This class cannot be inherited.
