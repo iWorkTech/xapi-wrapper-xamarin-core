@@ -25,6 +25,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
@@ -34,10 +35,9 @@ using TinCan.Standard.Documents;
 
 namespace TinCan.Standard.Tests
 {
-    //// <summary>
+    /// <summary>
     /// Class RemoteLRSResourceTest.
     /// </summary>
-    
     public class RemoteLRSResourceTest
     {
         /// <summary>
@@ -58,9 +58,9 @@ namespace TinCan.Standard.Tests
             //    "Bd9lDr1kjaWWY6RID_4"
             //);
             _lrs = new RemoteLRS(
-                "http://localhost:58527/api/",
-                "client",
-                "secret"
+                "https://trial-lrs.yetanalytics.io/xapi",
+                "ae71f2a120eff211904994b8bfbc7328",
+                "97ebd26e2ac39f1c408ecb5efd2ea915"
             );
         }
 
@@ -86,7 +86,7 @@ namespace TinCan.Standard.Tests
         public void TestAboutFailure()
         {
             //_lrs.Endpoint = new Uri("http://cloud.scorm.com/tc/3TQLAI9/sandbox/");
-            _lrs.Endpoint = new Uri("https://lrs.adlnet.gov/");
+            _lrs.Endpoint = new Uri("https://trial-lrs.yetanalytics.io/xapii");
 
             var lrsRes = _lrs.About();
             Assert.False(lrsRes.Success);
@@ -246,7 +246,7 @@ namespace TinCan.Standard.Tests
             var queryRes = await _lrs.QueryStatementsAsync(query).ConfigureAwait(false);
             if (queryRes.Success && queryRes.Content.More != null)
             {
-                var moreRes = _lrs.MoreStatements(queryRes.Content);
+                var moreRes = await _lrs.MoreStatementsAsync(queryRes.Content).ConfigureAwait(false);
                 Assert.True(queryRes.Success);
                 Assert.NotNull(moreRes);
                 Console.WriteLine("TestMoreStatementsAsync - statement count: " + queryRes.Content.Statements.Count);
@@ -459,7 +459,7 @@ namespace TinCan.Standard.Tests
             statement.Context = Support.Context;
             statement.Result = Support.Result;
 
-            var saveRes = _lrs.SaveStatement(statement);
+            var saveRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
             if (!saveRes.Success) return;
             if (saveRes.Content.ID == null) return;
             var retRes = await _lrs.RetrieveStatementAsync(saveRes.Content.ID.Value).ConfigureAwait(false);
@@ -477,7 +477,11 @@ namespace TinCan.Standard.Tests
             {
                 Activity = Support.Activity,
                 ID = Guid.NewGuid().ToString(),
-                Content = Encoding.UTF8.GetBytes("Test value")
+                Content = Encoding.UTF8.GetBytes("Test value"), 
+                Etag = "1234567890", 
+                ContentType = "text", 
+                Timestamp = DateTime.Now
+          
             };
 
             var lrsRes = _lrs.SaveActivityProfile(doc);
@@ -494,7 +498,10 @@ namespace TinCan.Standard.Tests
             {
                 Activity = Support.Activity,
                 ID = Guid.NewGuid().ToString(),
-                Content = Encoding.UTF8.GetBytes("Test value")
+                Content = Encoding.UTF8.GetBytes("Test value"),
+                Etag = "1234567890", 
+                ContentType = "text", 
+                Timestamp = DateTime.Now
             };
 
             var lrsRes = await _lrs.SaveActivityProfileAsync(doc).ConfigureAwait(false);
@@ -511,7 +518,10 @@ namespace TinCan.Standard.Tests
             {
                 Agent = Support.Agent,
                 ID = Guid.NewGuid().ToString(),
-                Content = Encoding.UTF8.GetBytes("Test value")
+                Content = Encoding.UTF8.GetBytes("Test value"),
+                Etag = "1234567890", 
+                ContentType = "text", 
+                Timestamp = DateTime.Now
             };
 
             var lrsRes = _lrs.SaveAgentProfile(doc);
@@ -527,8 +537,11 @@ namespace TinCan.Standard.Tests
             var doc = new AgentProfileDocument
             {
                 Agent = Support.Agent,
-                ID = Guid.NewGuid().ToString(),
-                Content = Encoding.UTF8.GetBytes("Test value")
+               ID = Guid.NewGuid().ToString(),
+                Content = Encoding.UTF8.GetBytes("Test value"),
+                Etag = "1234567890", 
+                ContentType = "text", 
+                Timestamp = DateTime.Now
             };
 
             var lrsRes = await _lrs.SaveAgentProfileAsync(doc).ConfigureAwait(false);

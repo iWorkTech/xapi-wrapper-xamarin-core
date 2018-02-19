@@ -648,7 +648,7 @@ namespace TinCan.Standard
                 Resource = "about"
             };
 
-            var res = await MakeAsyncRequest(req).ConfigureAwait(false);
+            var res = await MakeAsyncRequestAsync(req).ConfigureAwait(false);
             if (res.Status != HttpStatusCode.OK)
             {
                 r.Success = false;
@@ -690,7 +690,7 @@ namespace TinCan.Standard
             req.ContentType = "application/json";
             req.Content = Encoding.UTF8.GetBytes(statement.ToJSON(Version));
 
-            var res = await MakeAsyncRequest(req).ConfigureAwait(false);
+            var res = await MakeAsyncRequestAsync(req).ConfigureAwait(false);
             if (statement.ID == null)
             {
                 if (res.Status != HttpStatusCode.OK)
@@ -748,7 +748,8 @@ namespace TinCan.Standard
             };
             voidStatement.Verb.Display.Add("en-US", "voided");
 
-            return await SaveStatementAsync(voidStatement);
+            StatementLRSResponse statementLRSResponse = await SaveStatementAsync(voidStatement).ConfigureAwait(false);
+            return statementLRSResponse;
         }
 
         /// <summary>
@@ -772,7 +773,7 @@ namespace TinCan.Standard
                 jarray.Add(st.ToJObject(Version));
             req.Content = Encoding.UTF8.GetBytes(jarray.ToString());
 
-            var res = await MakeAsyncRequest(req);
+            var res = await MakeAsyncRequestAsync(req).ConfigureAwait(false);
             if (res.Status != HttpStatusCode.OK)
             {
                 r.Success = false;
@@ -800,7 +801,8 @@ namespace TinCan.Standard
         {
             var queryParams = new Dictionary<string, string> {{"statementId", id.ToString()}};
 
-            return await GetStatementAsync(queryParams);
+            StatementLRSResponse statementLRSResponse = await GetStatementAsync(queryParams).ConfigureAwait(false);
+            return statementLRSResponse;
         }
 
         /// <summary>
@@ -811,8 +813,8 @@ namespace TinCan.Standard
         public async Task<StatementLRSResponse> RetrieveVoidedStatementAsync(Guid id)
         {
             var queryParams = new Dictionary<string, string> {{"voidedStatementId", id.ToString()}};
-
-            return await GetStatementAsync(queryParams);
+            var result = await GetStatementAsync(queryParams).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
@@ -831,7 +833,7 @@ namespace TinCan.Standard
                 QueryParams = query.ToParameterMap(Version)
             };
 
-            var res = await MakeAsyncRequest(req);
+            var res = await MakeAsyncRequestAsync(req).ConfigureAwait(false);
             if (res.Status != HttpStatusCode.OK)
             {
                 r.Success = false;
@@ -864,7 +866,7 @@ namespace TinCan.Standard
                 req.Resource += "/";
             req.Resource += result.More;
 
-            var res = await MakeAsyncRequest(req);
+            var res = await MakeAsyncRequestAsync(req).ConfigureAwait(false);
             if (res.Status != HttpStatusCode.OK)
             {
                 r.Success = false;
@@ -898,7 +900,8 @@ namespace TinCan.Standard
             if (registration != null)
                 queryParams.Add("registration", registration.ToString());
 
-            return await GetProfileKeysAsync("activities/state", queryParams);
+            ProfileKeysLRSResponse profileKeysLRSResponse = await GetProfileKeysAsync("activities/state", queryParams).ConfigureAwait(false);
+            return profileKeysLRSResponse;
         }
 
         /// <summary>
@@ -934,7 +937,7 @@ namespace TinCan.Standard
                 state.Registration = registration;
             }
 
-            var resp = await GetDocumentAsync("activities/state", queryParams, state);
+            var resp = await GetDocumentAsync("activities/state", queryParams, state).ConfigureAwait(false);
             if (resp.Status != HttpStatusCode.OK && resp.Status != HttpStatusCode.NotFound)
             {
                 r.Success = false;
@@ -964,7 +967,8 @@ namespace TinCan.Standard
             if (state.Registration != null)
                 queryParams.Add("registration", state.Registration.ToString());
 
-            return await SaveDocumentAsync("activities/state", queryParams, state);
+            var result = await SaveDocumentAsync("activities/state", queryParams, state).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
@@ -983,7 +987,8 @@ namespace TinCan.Standard
             if (state.Registration != null)
                 queryParams.Add("registration", state.Registration.ToString());
 
-            return await DeleteDocumentAsync("activities/state", queryParams);
+            var result = await DeleteDocumentAsync("activities/state", queryParams).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
@@ -1003,7 +1008,8 @@ namespace TinCan.Standard
             if (registration != null)
                 queryParams.Add("registration", registration.ToString());
 
-            return await DeleteDocumentAsync("activities/state", queryParams);
+            var result = await DeleteDocumentAsync("activities/state", queryParams).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
@@ -1015,7 +1021,8 @@ namespace TinCan.Standard
         {
             var queryParams = new Dictionary<string, string> {{"activityId", activity.ID}};
 
-            return await GetProfileKeysAsync("activities/profile", queryParams);
+            var result = await GetProfileKeysAsync("activities/profile", queryParams).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
@@ -1036,7 +1043,7 @@ namespace TinCan.Standard
                 Activity = activity
             };
 
-            var resp = await GetDocumentAsync("activities/profile", queryParams, profile);
+            var resp = await GetDocumentAsync("activities/profile", queryParams, profile).ConfigureAwait(false);
             if (resp.Status != HttpStatusCode.OK && resp.Status != HttpStatusCode.NotFound)
             {
                 r.Success = false;
@@ -1063,7 +1070,8 @@ namespace TinCan.Standard
                 {"activityId", profile.Activity.ID}
             };
 
-            return await SaveDocumentAsync("activities/profile", queryParams, profile);
+            var result = await SaveDocumentAsync("activities/profile", queryParams, profile).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
@@ -1078,9 +1086,9 @@ namespace TinCan.Standard
                 {"profileId", profile.ID},
                 {"activityId", profile.Activity.ID}
             };
-            
-
-            return await DeleteDocumentAsync("activities/profile", queryParams);
+       
+            var result = await DeleteDocumentAsync("activities/profile", queryParams).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
@@ -1092,7 +1100,8 @@ namespace TinCan.Standard
         {
             var queryParams = new Dictionary<string, string> {{"agent", agent.ToJSON(Version)}};
 
-            return await GetProfileKeysAsync("agents/profile", queryParams);
+            var result = await GetProfileKeysAsync("agents/profile", queryParams).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
@@ -1113,7 +1122,7 @@ namespace TinCan.Standard
                 Agent = agent
             };
 
-            var resp = await GetDocumentAsync("agents/profile", queryParams, profile);
+            var resp = await GetDocumentAsync("agents/profile", queryParams, profile).ConfigureAwait(false);
             if (resp.Status != HttpStatusCode.OK && resp.Status != HttpStatusCode.NotFound)
             {
                 r.Success = false;
@@ -1140,7 +1149,8 @@ namespace TinCan.Standard
                 {"agent", profile.Agent.ToJSON(Version)}
             };
 
-            return await SaveDocumentAsync("agents/profile", queryParams, profile);
+            var result = await SaveDocumentAsync("agents/profile", queryParams, profile).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
@@ -1157,7 +1167,8 @@ namespace TinCan.Standard
             };
             
 
-            return await DeleteDocumentAsync("agents/profile", queryParams);
+            var result = await DeleteDocumentAsync("agents/profile", queryParams).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
@@ -1208,7 +1219,7 @@ namespace TinCan.Standard
                 QueryParams = queryParams
             };
 
-            var res = await MakeAsyncRequest(req);
+            var res = await MakeAsyncRequestAsync(req).ConfigureAwait(false);
             if (res.Status != HttpStatusCode.NoContent)
             {
                 r.Success = false;
@@ -1267,13 +1278,15 @@ namespace TinCan.Standard
                 QueryParams = queryParams
             };
 
-            var res = await MakeAsyncRequest(req);
-            if (res.Status == HttpStatusCode.OK)
+            var res = await MakeAsyncRequestAsync(req).ConfigureAwait(false);
+            switch (res.Status)
             {
-                document.Content = res.Content;
-                document.ContentType = res.ContentType;
-                document.Timestamp = res.LastModified;
-                document.Etag = res.Etag;
+                case HttpStatusCode.OK:
+                    document.Content = res.Content;
+                    document.ContentType = res.ContentType;
+                    document.Timestamp = res.LastModified;
+                    document.Etag = res.Etag;
+                    break;
             }
 
             return res;
@@ -1336,7 +1349,7 @@ namespace TinCan.Standard
                 QueryParams = queryParams
             };
 
-            var res = await MakeAsyncRequest(req);
+            var res = await MakeAsyncRequestAsync(req).ConfigureAwait(false);
             if (res.Status != HttpStatusCode.OK)
             {
                 r.Success = false;
@@ -1405,7 +1418,7 @@ namespace TinCan.Standard
                 QueryParams = queryParams
             };
 
-            var res = await MakeAsyncRequest(req);
+            var res = await MakeAsyncRequestAsync(req).ConfigureAwait(false);
             if (res.Status != HttpStatusCode.OK)
             {
                 r.Success = false;
@@ -1425,7 +1438,7 @@ namespace TinCan.Standard
         /// </summary>
         /// <param name="req">The req.</param>
         /// <returns>MyHTTPResponse.</returns>
-        private async Task<LRSHttpResponse> MakeAsyncRequest(LRSHttpRequest req)
+        private async Task<LRSHttpResponse> MakeAsyncRequestAsync(LRSHttpRequest req)
         {
             string url;
             if (req.Resource.StartsWith("http", StringComparison.OrdinalIgnoreCase))
@@ -1467,9 +1480,9 @@ namespace TinCan.Standard
 
             if (req.Content != null)
             {
-                var stream = await webReq.GetRequestStreamAsync();
+                var stream = await webReq.GetRequestStreamAsync().ConfigureAwait(false);
                 {
-                    stream.Write(req.Content, 0, req.Content.Length);
+                    await stream.WriteAsync(req.Content, 0, req.Content.Length).ConfigureAwait(false);
                 }
             }
 
@@ -1477,7 +1490,7 @@ namespace TinCan.Standard
 
             try
             {
-                using (var webResp = (HttpWebResponse)await webReq.GetResponseAsync())
+                using (var webResp = (HttpWebResponse)await webReq.GetResponseAsync().ConfigureAwait(false))
                 {
                     resp = new LRSHttpResponse(webResp);
                 }
@@ -1677,7 +1690,7 @@ namespace TinCan.Standard
                 Content = document.Content
             };
 
-            var res = await MakeAsyncRequest(req);
+            var res = await MakeAsyncRequestAsync(req).ConfigureAwait(false);
             if (res.Status != HttpStatusCode.NoContent)
             {
                 r.Success = false;
