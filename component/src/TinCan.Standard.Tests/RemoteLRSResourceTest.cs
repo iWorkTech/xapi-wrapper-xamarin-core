@@ -52,10 +52,15 @@ namespace TinCan.Standard.Tests
             // so are okay to include in the repository, if you wish to have access to the
             // results of the test suite then supply your own endpoint, username, and password
             //
+            //_lrs = new RemoteLRS(
+            //    "https://lrs.adlnet.gov/xapi/",
+            //    "Nja986GYE1_XrWMmFUE",
+            //    "Bd9lDr1kjaWWY6RID_4"
+            //);
             _lrs = new RemoteLRS(
-                "https://lrs.adlnet.gov/xapi/",
-                "Nja986GYE1_XrWMmFUE",
-                "Bd9lDr1kjaWWY6RID_4"
+                "http://localhost:58527/api/",
+                "client",
+                "secret"
             );
         }
 
