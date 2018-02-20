@@ -8,7 +8,7 @@ using xAPI.Standard.LRSResponses;
 
 namespace xAPIWrapper
 {
-    /// <inheritdoc />
+    /// <inheritdoc cref="" />
     /// <summary>
     /// Class xAPIWrapper. - Test
     /// </summary>
@@ -16,7 +16,7 @@ namespace xAPIWrapper
     /// <seealso cref="T:xAPIWrapper.IxAPIWrapper" />
     /// <seealso cref="T:xAPIWrapper.IxAPIWrapper" />
     /// <seealso cref="T:System.IDisposable" />
-    public class APIWrapper : IxAPIWrapper, IDisposable
+    public class ApiWrapper : IxApiWrapper, IDisposable
     {
         /// <summary>
         /// The LRS
@@ -37,12 +37,12 @@ namespace xAPIWrapper
         private string _endpoint;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="APIWrapper" /> class.
+        /// Initializes a new instance of the <see cref="ApiWrapper" /> class.
         /// </summary>
         /// <param name="endpoint">The endpoint.</param>
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
-        public APIWrapper(string endpoint, string username, string password)
+        public ApiWrapper(string endpoint, string username, string password)
         {
             Init(endpoint, username, password);
         }
@@ -63,30 +63,35 @@ namespace xAPIWrapper
         /// <param name="password">The password.</param>
         public void Init(string endpoint, string username, string password)
         {
-            _endpoint = string.IsNullOrWhiteSpace(endpoint) ? "https://lrs.adlnet.gov/xAPI/" : endpoint;
-            _username = string.IsNullOrWhiteSpace(username) ? "Nja986GYE1_XrWMmFUE" : username;
-            _password = string.IsNullOrWhiteSpace(password) ? "Bd9lDr1kjaWWY6RID_4" : password;
-           
-            _lrs = new RemoteLRS(_endpoint, _username, _password);
+            //_endpoint = string.IsNullOrWhiteSpace(endpoint) ? "https://lrs.adlnet.gov/xAPI/" : endpoint;
+            //_username = string.IsNullOrWhiteSpace(username) ? "Nja986GYE1_XrWMmFUE" : username;
+            //_password = string.IsNullOrWhiteSpace(password) ? "Bd9lDr1kjaWWY6RID_4" : password;
+
+            _endpoint = string.IsNullOrWhiteSpace(endpoint) ? "https://trial-lrs.yetanalytics.io/xapi" : endpoint;
+            _username = string.IsNullOrWhiteSpace(username) ? "ae71f2a120eff211904994b8bfbc7328" : username;
+            _password = string.IsNullOrWhiteSpace(password) ? "97ebd26e2ac39f1c408ecb5efd2ea915" : password;
+
+           _lrs = new RemoteLRS(_endpoint, _username, _password);
         }
 
         /// <summary>
         /// Abouts this instance.
         /// </summary>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        public async Task<AboutLRSResponse> About()
+        public async Task<AboutLRSResponse> AboutAsync()
         {
             var lrsRes = await _lrs.AboutAsync().ConfigureAwait(false);
             return lrsRes;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Changes the configuration.
         /// </summary>
         /// <param name="endpoint">The endpoint.</param>
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
-        /// <exception cref="System.NotImplementedException"></exception>
+        /// <exception cref="T:System.NotImplementedException"></exception>
         public void ChangeConfig(string endpoint, string username, string password)
         {
             _endpoint = string.IsNullOrWhiteSpace(username) ? "https://lrs.adlnet.gov/xAPI/" : endpoint;
@@ -96,6 +101,7 @@ namespace xAPIWrapper
             _lrs = new RemoteLRS(_endpoint, _username, _password);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Prepares the statement.
         /// </summary>
@@ -103,7 +109,7 @@ namespace xAPIWrapper
         /// <param name="verb">The verb.</param>
         /// <param name="target">The target.</param>
         /// <returns>Statement.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
+        /// <exception cref="T:System.NotImplementedException"></exception>
         public Statement PrepareStatement(Agent agent, Verb verb, IStatementTarget target)
         {
             var statement = new Statement
@@ -116,6 +122,7 @@ namespace xAPIWrapper
             return statement;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Prepares the statement.
         /// </summary>
@@ -147,15 +154,17 @@ namespace xAPIWrapper
             return statement;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Sends the statement.
         /// </summary>
         /// <param name="statement">The statement.</param>
         /// <returns>LRSResponse.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<StatementLRSResponse> SendStatement(Statement statement)
+        /// <exception cref="T:System.NotImplementedException"></exception>
+        public async Task<StatementLRSResponse> SendStatementAsync(Statement statement)
         {
-            return await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);          
+            var result = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
+            return result;          
         }
 
         /// <summary>
@@ -165,7 +174,7 @@ namespace xAPIWrapper
         /// <param name="verb">The verb.</param>
         /// <param name="target">The target.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        public async Task<LRSResponse> SendStatement(Agent agent, Verb verb, IStatementTarget target)
+        public async Task<LRSResponse> SendStatementAsync(Agent agent, Verb verb, IStatementTarget target)
         {
             var statement = new Statement
             {
@@ -175,18 +184,21 @@ namespace xAPIWrapper
                 Verb = verb
             };
 
-            return await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
+            var result = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
+            return result;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Sends the statements.
         /// </summary>
         /// <param name="statements">The statements.</param>
         /// <returns>LRSResponse.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<StatementsResultLRSResponse> SendStatements(List<Statement> statements)
+        /// <exception cref="T:System.NotImplementedException"></exception>
+        public async Task<StatementsResultLRSResponse> SendStatementsAsync(List<Statement> statements)
         {
-           return await _lrs.SaveStatementsAsync(statements).ConfigureAwait(false);
+            var result =  await _lrs.SaveStatementsAsync(statements).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
@@ -195,40 +207,46 @@ namespace xAPIWrapper
         /// <param name="searchParams">The search parameters.</param>
         /// <returns>List&lt;Statement&gt;.</returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<StatementsResultLRSResponse> GetStatements(StatementsQuery searchParams)
+        public async Task<StatementsResultLRSResponse> GetStatementsAsync(StatementsQuery searchParams)
         {
-            return await _lrs.QueryStatementsAsync(searchParams).ConfigureAwait(false);
+            var result =  await _lrs.QueryStatementsAsync(searchParams).ConfigureAwait(false);
+            return result;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the statements.
         /// </summary>
         /// <param name="since">Since a particular date</param>
         /// <param name="limit">Limit or size of the resultset</param>
         /// <returns>List&lt;Statement&gt;.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<StatementsResultLRSResponse> GetStatements(DateTime since, int limit)
+        /// <exception cref="T:System.NotImplementedException"></exception>
+        public async Task<StatementsResultLRSResponse> GetStatementsAsync(DateTime since, int limit)
         {
             var queryParams = new StatementsQuery
             {
                 Since = since,
                 Limit = limit
             };
-            return await _lrs.QueryStatementsAsync(queryParams).ConfigureAwait(false);
+            var result =  await _lrs.QueryStatementsAsync(queryParams).ConfigureAwait(false);
+            return result;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the activities.
         /// </summary>
         /// <param name="activityId">The activity identifier.</param>
         /// <param name="activity"></param>
         /// <returns>List&lt;Activity&gt;.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<ActivityProfileLRSResponse> GetActivity(string activityId, Activity activity)
+        /// <exception cref="T:System.NotImplementedException"></exception>
+        public async Task<ActivityProfileLRSResponse> GetActivityAsync(string activityId, Activity activity)
         {
-            return await _lrs.RetrieveActivityProfileAsync(activityId, activity).ConfigureAwait(false);
+            var result =  await _lrs.RetrieveActivityProfileAsync(activityId, activity).ConfigureAwait(false);
+            return result;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Sends the state.
         /// </summary>
@@ -240,8 +258,8 @@ namespace xAPIWrapper
         /// <param name="matchHash">The match hash.</param>
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>LRSResponse.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<LRSResponse> SendState(string activityId, Agent agent, string stateId, Guid? registration, string stateVal, string matchHash,
+        /// <exception cref="T:System.NotImplementedException"></exception>
+        public async Task<LRSResponse> SendStateAsync(string activityId, Agent agent, string stateId, Guid? registration, string stateVal, string matchHash,
             string noneMatchHash)
         {
             var activity = new Activity {ID = activityId};
@@ -254,9 +272,11 @@ namespace xAPIWrapper
                 Registration = registration
             };
 
-            return await _lrs.SaveStateAsync(doc).ConfigureAwait(false);
+            var result =  await _lrs.SaveStateAsync(doc).ConfigureAwait(false);
+            return result;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the state.
         /// </summary>
@@ -268,14 +288,16 @@ namespace xAPIWrapper
         /// <param name="matchHash">The match hash.</param>
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<StateLRSResponse> GetState(string activityId, Agent agent, string stateId, Guid? registration, string stateVal, string matchHash,
+        /// <exception cref="T:System.NotImplementedException"></exception>
+        public async Task<StateLRSResponse> GetStateAsync(string activityId, Agent agent, string stateId, Guid? registration, string stateVal, string matchHash,
             string noneMatchHash)
         {
             var activity = new Activity {ID = activityId};
-            return await _lrs.RetrieveStateAsync(stateId, activity, agent, registration).ConfigureAwait(false);
+            var result =  await _lrs.RetrieveStateAsync(stateId, activity, agent, registration).ConfigureAwait(false);
+            return result;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Deletes the state.
         /// </summary>
@@ -287,8 +309,8 @@ namespace xAPIWrapper
         /// <param name="matchHash">The match hash.</param>
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<LRSResponse> DeleteState(string activityId, Agent agent, string stateId, Guid? registration, string stateVal, string matchHash,
+        /// <exception cref="T:System.NotImplementedException"></exception>
+        public async Task<LRSResponse> DeleteStateAsync(string activityId, Agent agent, string stateId, Guid? registration, string stateVal, string matchHash,
             string noneMatchHash)
         {
             var activity = new Activity { ID = activityId };
@@ -302,9 +324,11 @@ namespace xAPIWrapper
                 Registration = registration
             };
 
-            return await _lrs.DeleteStateAsync(doc).ConfigureAwait(false);
+            var result =  await _lrs.DeleteStateAsync(doc).ConfigureAwait(false);
+            return result;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Sends the activity profile.
         /// </summary>
@@ -314,7 +338,7 @@ namespace xAPIWrapper
         /// <param name="matchHash">The match hash.</param>
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        public async Task<LRSResponse> SendActivityProfile(string activityId, string profileId, string profilEval, string matchHash, string noneMatchHash)
+        public async Task<LRSResponse> SendActivityProfileAsync(string activityId, string profileId, string profilEval, string matchHash, string noneMatchHash)
         {
             var activity = new Activity { ID = activityId };
 
@@ -325,9 +349,11 @@ namespace xAPIWrapper
                 Content = Encoding.UTF8.GetBytes(profilEval)
             };
 
-            return await _lrs.SaveActivityProfileAsync(doc).ConfigureAwait(false);
+            var result =  await _lrs.SaveActivityProfileAsync(doc).ConfigureAwait(false);
+            return result;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the activity profile.
         /// </summary>
@@ -335,13 +361,14 @@ namespace xAPIWrapper
         /// <param name="profileId">The profile identifier.</param>
         /// <param name="since">The since.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<ActivityProfileLRSResponse> GetActivityProfile(string activityId, string profileId, DateTime? since)
+        public async Task<ActivityProfileLRSResponse> GetActivityProfileAsync(string activityId, string profileId, DateTime? since)
         {
             var activity = new Activity {ID = activityId};
-            return await _lrs.RetrieveActivityProfileAsync(profileId, activity).ConfigureAwait(false);
+            var result =  await _lrs.RetrieveActivityProfileAsync(profileId, activity).ConfigureAwait(false);
+            return result;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Deletes the activity profile.
         /// </summary>
@@ -350,8 +377,8 @@ namespace xAPIWrapper
         /// <param name="matchHash">The match hash.</param>
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<LRSResponse> DeleteActivityProfile(string activityId, string profileId, string matchHash, string noneMatchHash)
+        /// <exception cref="T:System.NotImplementedException"></exception>
+        public async Task<LRSResponse> DeleteActivityProfileAsync(string activityId, string profileId, string matchHash, string noneMatchHash)
         {
             var activity = new Activity { ID = activityId };
 
@@ -361,21 +388,25 @@ namespace xAPIWrapper
                 ID = profileId,
             };
 
-            return await _lrs.DeleteActivityProfileAsync(doc).ConfigureAwait(false);
+            var result =  await _lrs.DeleteActivityProfileAsync(doc).ConfigureAwait(false);
+            return result;
 
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the agents.
         /// </summary>
         /// <param name="agent">The agent.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<AgentProfileLRSResponse> GetAgent(Agent agent)
+        /// <exception cref="T:System.NotImplementedException"></exception>
+        public async Task<AgentProfileLRSResponse> GetAgentAsync(Agent agent)
         {
-           return await _lrs.RetrieveAgentProfileAsync(agent.Mbox, agent).ConfigureAwait(false);
+            var result =  await _lrs.RetrieveAgentProfileAsync(agent.Mbox, agent).ConfigureAwait(false);
+            return result;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Sends the agent profile.
         /// </summary>
@@ -385,8 +416,8 @@ namespace xAPIWrapper
         /// <param name="matchHash">The match hash.</param>
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<LRSResponse> SendAgentProfile(Agent agent, string profileId, string profilEval, string matchHash, string noneMatchHash)
+        /// <exception cref="T:System.NotImplementedException"></exception>
+        public async Task<LRSResponse> SendAgentProfileAsync(Agent agent, string profileId, string profilEval, string matchHash, string noneMatchHash)
         {
             var doc = new AgentProfileDocument
             {
@@ -395,9 +426,11 @@ namespace xAPIWrapper
                 Content = Encoding.UTF8.GetBytes(profilEval)
             };
 
-            return await _lrs.SaveAgentProfileAsync(doc).ConfigureAwait(false);
+            var result =  await _lrs.SaveAgentProfileAsync(doc).ConfigureAwait(false);
+            return result;
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Gets the agent profile.
         /// </summary>
@@ -405,11 +438,12 @@ namespace xAPIWrapper
         /// <param name="profileId">The profile identifier.</param>
         /// <param name="since">The since.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<LRSResponse> GetAgentProfile(string agentId, string profileId, DateTime? since)
+        /// <exception cref="T:System.NotImplementedException"></exception>
+        public async Task<LRSResponse> GetAgentProfileAsync(string agentId, string profileId, DateTime? since)
         {
             var agent = new Agent {Mbox = agentId};
-            return await _lrs.RetrieveAgentProfileAsync(profileId, agent).ConfigureAwait(false);
+            var result =  await _lrs.RetrieveAgentProfileAsync(profileId, agent).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
@@ -421,7 +455,7 @@ namespace xAPIWrapper
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public async Task<LRSResponse> DeleteAgentProfile(Agent agent, string profileId, string matchHash, string noneMatchHash)
+        public async Task<LRSResponse> DeleteAgentProfileAsync(Agent agent, string profileId, string matchHash, string noneMatchHash)
         {
             var doc = new AgentProfileDocument
             {
@@ -429,7 +463,8 @@ namespace xAPIWrapper
                 ID = profileId,
             };
 
-            return await _lrs.DeleteAgentProfileAsync(doc).ConfigureAwait(false);
+            var result =  await _lrs.DeleteAgentProfileAsync(doc).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
