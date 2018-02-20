@@ -28,7 +28,7 @@ using System.Text;
 
 #endregion
 
-namespace TinCan.Standard.LRSResponses
+namespace xAPI.Standard.LRSResponses
 {
     //
     // this isn't abstract because some responses for an LRS won't have content

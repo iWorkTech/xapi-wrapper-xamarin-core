@@ -28,7 +28,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace TinCan.Standard
+namespace xAPI.Standard
 {
     /// <summary>
     /// Class StatementsQuery.
@@ -116,7 +116,7 @@ namespace TinCan.Standard
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>Dictionary&lt;System.String, System.String&gt;.</returns>
-        public Dictionary<string, string> ToParameterMap(TCAPIVersion version)
+        public Dictionary<string, string> ToParameterMap(xAPIVersion version)
         {
             var result = new Dictionary<string, string>();
 

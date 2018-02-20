@@ -25,11 +25,11 @@
 
 using Newtonsoft.Json.Linq;
 using Xunit;
-using TinCan.Standard.Json;
+using xAPI.Standard.Json;
 
 #endregion
 
-namespace TinCan.Standard.Tests
+namespace xAPI.Standard.Tests
 {
 
     /// <summary>

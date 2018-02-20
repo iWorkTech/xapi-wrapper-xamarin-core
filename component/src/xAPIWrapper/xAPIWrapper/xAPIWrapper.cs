@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using TinCan.Standard;
-using TinCan.Standard.Documents;
-using TinCan.Standard.LRSResponses;
-using xAPIWrapper;
+using xAPI.Standard;
+using xAPI.Standard.Documents;
+using xAPI.Standard.LRSResponses;
 
-namespace TinCan.xAPIWrapper
+namespace xAPIWrapper
 {
+    /// <inheritdoc />
     /// <summary>
     /// Class xAPIWrapper. - Test
     /// </summary>
-    /// <seealso cref="IxAPIWrapper" />
-    /// <seealso cref="IxAPIWrapper" />
-    /// <seealso cref="IxAPIWrapper" />
-    /// <seealso cref="System.IDisposable" />
+    /// <seealso cref="T:xAPIWrapper.IxAPIWrapper" />
+    /// <seealso cref="T:xAPIWrapper.IxAPIWrapper" />
+    /// <seealso cref="T:xAPIWrapper.IxAPIWrapper" />
+    /// <seealso cref="T:System.IDisposable" />
     public class APIWrapper : IxAPIWrapper, IDisposable
     {
         /// <summary>
@@ -63,7 +63,7 @@ namespace TinCan.xAPIWrapper
         /// <param name="password">The password.</param>
         public void Init(string endpoint, string username, string password)
         {
-            _endpoint = string.IsNullOrWhiteSpace(username) ? "https://lrs.adlnet.gov/xAPI/" : endpoint;
+            _endpoint = string.IsNullOrWhiteSpace(endpoint) ? "https://lrs.adlnet.gov/xAPI/" : endpoint;
             _username = string.IsNullOrWhiteSpace(username) ? "Nja986GYE1_XrWMmFUE" : username;
             _password = string.IsNullOrWhiteSpace(password) ? "Bd9lDr1kjaWWY6RID_4" : password;
            
@@ -76,7 +76,7 @@ namespace TinCan.xAPIWrapper
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
         public async Task<AboutLRSResponse> About()
         {
-            var lrsRes = await _lrs.AboutAsync();
+            var lrsRes = await _lrs.AboutAsync().ConfigureAwait(false);
             return lrsRes;
         }
 
@@ -155,7 +155,7 @@ namespace TinCan.xAPIWrapper
         /// <exception cref="System.NotImplementedException"></exception>
         public async Task<StatementLRSResponse> SendStatement(Statement statement)
         {
-            return await _lrs.SaveStatementAsync(statement);          
+            return await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);          
         }
 
         /// <summary>
@@ -167,23 +167,15 @@ namespace TinCan.xAPIWrapper
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
         public async Task<LRSResponse> SendStatement(Agent agent, Verb verb, IStatementTarget target)
         {
-            var authority = new Agent
-            {
-                Mbox = "mailto:admin@adl.net",
-                Account = new AgentAccount { Name = "ADL Administrator" },
-                Name = "Admin"
-            };
-
             var statement = new Statement
             {
-                Version = TCAPIVersion.Latest(),
+                Version = xAPIVersion.Latest(),
                 Actor = agent,
                 Target = target,
-                Authority = authority,
                 Verb = verb
             };
 
-            return await _lrs.SaveStatementAsync(statement);
+            return await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -194,7 +186,7 @@ namespace TinCan.xAPIWrapper
         /// <exception cref="System.NotImplementedException"></exception>
         public async Task<StatementsResultLRSResponse> SendStatements(List<Statement> statements)
         {
-           return await _lrs.SaveStatementsAsync(statements);
+           return await _lrs.SaveStatementsAsync(statements).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -205,7 +197,7 @@ namespace TinCan.xAPIWrapper
         /// <exception cref="System.NotImplementedException"></exception>
         public async Task<StatementsResultLRSResponse> GetStatements(StatementsQuery searchParams)
         {
-            return await _lrs.QueryStatementsAsync(searchParams);
+            return await _lrs.QueryStatementsAsync(searchParams).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -222,18 +214,19 @@ namespace TinCan.xAPIWrapper
                 Since = since,
                 Limit = limit
             };
-            return await _lrs.QueryStatementsAsync(queryParams);
+            return await _lrs.QueryStatementsAsync(queryParams).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Gets the activities.
         /// </summary>
         /// <param name="activityId">The activity identifier.</param>
+        /// <param name="activity"></param>
         /// <returns>List&lt;Activity&gt;.</returns>
         /// <exception cref="System.NotImplementedException"></exception>
         public async Task<ActivityProfileLRSResponse> GetActivity(string activityId, Activity activity)
         {
-            return await _lrs.RetrieveActivityProfileAsync(activityId, activity);
+            return await _lrs.RetrieveActivityProfileAsync(activityId, activity).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -261,7 +254,7 @@ namespace TinCan.xAPIWrapper
                 Registration = registration
             };
 
-            return await _lrs.SaveStateAsync(doc);
+            return await _lrs.SaveStateAsync(doc).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -280,7 +273,7 @@ namespace TinCan.xAPIWrapper
             string noneMatchHash)
         {
             var activity = new Activity {ID = activityId};
-            return await _lrs.RetrieveStateAsync(stateId, activity, agent, registration);
+            return await _lrs.RetrieveStateAsync(stateId, activity, agent, registration).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -309,7 +302,7 @@ namespace TinCan.xAPIWrapper
                 Registration = registration
             };
 
-            return await _lrs.DeleteStateAsync(doc);
+            return await _lrs.DeleteStateAsync(doc).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -332,7 +325,7 @@ namespace TinCan.xAPIWrapper
                 Content = Encoding.UTF8.GetBytes(profilEval)
             };
 
-            return await _lrs.SaveActivityProfileAsync(doc);
+            return await _lrs.SaveActivityProfileAsync(doc).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -346,7 +339,7 @@ namespace TinCan.xAPIWrapper
         public async Task<ActivityProfileLRSResponse> GetActivityProfile(string activityId, string profileId, DateTime? since)
         {
             var activity = new Activity {ID = activityId};
-            return await _lrs.RetrieveActivityProfileAsync(profileId, activity);
+            return await _lrs.RetrieveActivityProfileAsync(profileId, activity).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -368,7 +361,7 @@ namespace TinCan.xAPIWrapper
                 ID = profileId,
             };
 
-            return await _lrs.DeleteActivityProfileAsync(doc);
+            return await _lrs.DeleteActivityProfileAsync(doc).ConfigureAwait(false);
 
         }
 
@@ -380,7 +373,7 @@ namespace TinCan.xAPIWrapper
         /// <exception cref="System.NotImplementedException"></exception>
         public async Task<AgentProfileLRSResponse> GetAgent(Agent agent)
         {
-           return await _lrs.RetrieveAgentProfileAsync(agent.Mbox, agent);
+           return await _lrs.RetrieveAgentProfileAsync(agent.Mbox, agent).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -402,7 +395,7 @@ namespace TinCan.xAPIWrapper
                 Content = Encoding.UTF8.GetBytes(profilEval)
             };
 
-            return await _lrs.SaveAgentProfileAsync(doc);
+            return await _lrs.SaveAgentProfileAsync(doc).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -416,7 +409,7 @@ namespace TinCan.xAPIWrapper
         public async Task<LRSResponse> GetAgentProfile(string agentId, string profileId, DateTime? since)
         {
             var agent = new Agent {Mbox = agentId};
-            return await _lrs.RetrieveAgentProfileAsync(profileId, agent);
+            return await _lrs.RetrieveAgentProfileAsync(profileId, agent).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -436,7 +429,7 @@ namespace TinCan.xAPIWrapper
                 ID = profileId,
             };
 
-            return await _lrs.DeleteAgentProfileAsync(doc);
+            return await _lrs.DeleteAgentProfileAsync(doc).ConfigureAwait(false);
         }
 
         /// <summary>

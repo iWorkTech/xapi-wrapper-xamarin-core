@@ -25,16 +25,16 @@
 
 using System;
 using Newtonsoft.Json.Linq;
-using TinCan.Json;
+using xAPI.Json;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class Statement.
     /// </summary>
-    /// <seealso cref="TinCan.StatementBase" />
+    /// <seealso cref="xAPI.StatementBase" />
     public class Statement : StatementBase
     {
         // TODO: put in common location
@@ -79,7 +79,7 @@ namespace TinCan
             }
             if (jobj["version"] != null)
             {
-                Version = (TCAPIVersion) jobj.Value<string>("version");
+                Version = (xAPIVersion) jobj.Value<string>("version");
             }
 
             //
@@ -111,14 +111,14 @@ namespace TinCan
         /// Gets or sets the version.
         /// </summary>
         /// <value>The version.</value>
-        public TCAPIVersion Version { get; set; }
+        public xAPIVersion Version { get; set; }
 
         /// <summary>
         /// To the j object.
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>JObject.</returns>
-        public override JObject ToJObject(TCAPIVersion version)
+        public override JObject ToJObject(xAPIVersion version)
         {
             var result = base.ToJObject(version);
 

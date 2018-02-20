@@ -25,10 +25,10 @@
 
 using Newtonsoft.Json.Linq;
 using Xunit;
-using TinCan.Standard.Json;
+using xAPI.Standard.Json;
 #endregion
 
-namespace TinCan.Standard.Tests
+namespace xAPI.Standard.Tests
 {
     /// <summary>
     ///     Class ResultTest.
@@ -63,9 +63,9 @@ namespace TinCan.Standard.Tests
 
             var obj = new Result(cfg);
             Assert.IsType<Result>(obj);
-            Assert.Equal(obj.Completion, true);
-            Assert.Equal(obj.Success, true);
-            Assert.Equal(obj.Response, "Yes");
+            Assert.True(obj.Completion);
+            Assert.True(obj.Success);
+            Assert.Equal("Yes", obj.Response);
         }
 
         /// <summary>
@@ -79,9 +79,9 @@ namespace TinCan.Standard.Tests
 
             var obj = new Result(strOfJson);
             Assert.IsType<Result>(obj);
-            Assert.Equal(obj.Success, true);
-            Assert.Equal(obj.Completion, true);
-            Assert.Equal(obj.Response, "Yes");
+            Assert.True(obj.Success);
+            Assert.True(obj.Completion);
+            Assert.Equal("Yes", obj.Response);
         }
     }
 }

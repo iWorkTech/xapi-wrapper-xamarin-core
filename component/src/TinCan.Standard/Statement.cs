@@ -25,11 +25,11 @@
 
 using System;
 using Newtonsoft.Json.Linq;
-using TinCan.Standard.Json;
+using xAPI.Standard.Json;
 
 #endregion
 
-namespace TinCan.Standard
+namespace xAPI.Standard
 {
     /// <summary>
     /// Class Statement.
@@ -79,7 +79,7 @@ namespace TinCan.Standard
             }
             if (jobj["version"] != null)
             {
-                Version = (TCAPIVersion) jobj.Value<string>("version");
+                Version = (xAPIVersion) jobj.Value<string>("version");
             }
 
             //
@@ -111,14 +111,14 @@ namespace TinCan.Standard
         /// Gets or sets the version.
         /// </summary>
         /// <value>The version.</value>
-        public TCAPIVersion Version { get; set; }
+        public xAPIVersion Version { get; set; }
 
         /// <summary>
         /// To the j object.
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>JObject.</returns>
-        public override JObject ToJObject(TCAPIVersion version)
+        public override JObject ToJObject(xAPIVersion version)
         {
             var result = base.ToJObject(version);
 

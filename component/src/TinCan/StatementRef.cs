@@ -25,17 +25,17 @@
 
 using System;
 using Newtonsoft.Json.Linq;
-using TinCan.Json;
+using xAPI.Json;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class StatementRef.
     /// </summary>
-    /// <seealso cref="TinCan.Json.JsonModel" />
-    /// <seealso cref="TinCan.IStatementTarget" />
+    /// <seealso cref="xAPI.Json.JsonModel" />
+    /// <seealso cref="xAPI.IStatementTarget" />
     public class StatementRef : JsonModel, IStatementTarget
     {
         /// <summary>
@@ -96,7 +96,7 @@ namespace TinCan
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>JObject.</returns>
-        public override JObject ToJObject(TCAPIVersion version)
+        public override JObject ToJObject(xAPIVersion version)
         {
             var result = new JObject {{"objectType", ObjectType}};
 

@@ -30,20 +30,20 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
-using TinCan.Standard.Documents;
-using TinCan.Standard.Json;
-using TinCan.Standard.LRSResponses;
+using xAPI.Standard.Documents;
+using xAPI.Standard.Json;
+using xAPI.Standard.LRSResponses;
 
 #endregion
 
-namespace TinCan.Standard
+namespace xAPI.Standard
 {
     /// <inheritdoc />
     /// <summary>
     ///     Class RemoteLRS.
     /// </summary>
-    /// <seealso cref="T:TinCan.Standard.ILRS" />
-    /// <seealso cref="T:TinCan.Standard.ILRS" />
+    /// <seealso cref="T:xAPI.Standard.ILRS" />
+    /// <seealso cref="T:xAPI.Standard.ILRS" />
     public class RemoteLRS : ILRS
     {
         /// <summary>
@@ -60,7 +60,7 @@ namespace TinCan.Standard
         /// <param name="version">The version.</param>
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
-        public RemoteLRS(Uri endpoint, TCAPIVersion version, string username, string password)
+        public RemoteLRS(Uri endpoint, xAPIVersion version, string username, string password)
         {
             Endpoint = endpoint;
             Version = version;
@@ -69,26 +69,26 @@ namespace TinCan.Standard
 
         /// <inheritdoc />
         /// <summary>
-        ///     Initializes a new instance of the <see cref="T:TinCan.Standard.RemoteLRS" /> class.
+        ///     Initializes a new instance of the <see cref="T:xAPI.Standard.RemoteLRS" /> class.
         /// </summary>
         /// <param name="endpoint">The endpoint.</param>
         /// <param name="version">The version.</param>
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
-        public RemoteLRS(string endpoint, TCAPIVersion version, string username, string password)
+        public RemoteLRS(string endpoint, xAPIVersion version, string username, string password)
             : this(new Uri(endpoint), version, username, password)
         {
         }
 
         /// <inheritdoc />
         /// <summary>
-        ///     Initializes a new instance of the <see cref="T:TinCan.Standard.RemoteLRS" /> class.
+        ///     Initializes a new instance of the <see cref="T:xAPI.Standard.RemoteLRS" /> class.
         /// </summary>
         /// <param name="endpoint">The endpoint.</param>
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         public RemoteLRS(string endpoint, string username, string password)
-            : this(endpoint, TCAPIVersion.Latest(), username, password)
+            : this(endpoint, xAPIVersion.Latest(), username, password)
         {
         }
 
@@ -102,7 +102,7 @@ namespace TinCan.Standard
         ///     Gets or sets the version.
         /// </summary>
         /// <value>The version.</value>
-        public TCAPIVersion Version { get; set; }
+        public xAPIVersion Version { get; set; }
 
         /// <summary>
         ///     Gets or sets the authentication.

@@ -23,16 +23,16 @@
 
 #region
 
-using TinCan.Documents;
+using xAPI.Documents;
 
 #endregion
 
-namespace TinCan.LRSResponses
+namespace xAPI.LRSResponses
 {
     /// <summary>
     /// Class ActivityProfileLRSResponse.
     /// </summary>
-    /// <seealso cref="TinCan.LRSResponses.LRSResponse" />
+    /// <seealso cref="xAPI.LRSResponses.LRSResponse" />
     public class ActivityProfileLRSResponse : LRSResponse
     {
         /// <summary>

@@ -25,16 +25,16 @@
 
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
-using TinCan.Json;
+using xAPI.Json;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class About.
     /// </summary>
-    /// <seealso cref="TinCan.Json.JsonModel" />
+    /// <seealso cref="xAPI.Json.JsonModel" />
     public class About : JsonModel
     {
         /// <summary>
@@ -61,10 +61,10 @@ namespace TinCan
         {
             if (jobj["version"] != null)
             {
-                Version = new List<TCAPIVersion>();
+                Version = new List<xAPIVersion>();
                 foreach (string item in jobj.Value<JArray>("version"))
                 {
-                    Version.Add((TCAPIVersion) item);
+                    Version.Add((xAPIVersion) item);
                 }
             }
             if (jobj["extensions"] != null)
@@ -77,7 +77,7 @@ namespace TinCan
         /// Gets or sets the version.
         /// </summary>
         /// <value>The version.</value>
-        public List<TCAPIVersion> Version { get; set; }
+        public List<xAPIVersion> Version { get; set; }
         /// <summary>
         /// Gets or sets the extensions.
         /// </summary>
@@ -89,7 +89,7 @@ namespace TinCan
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>JObject.</returns>
-        public override JObject ToJObject(TCAPIVersion version)
+        public override JObject ToJObject(xAPIVersion version)
         {
             var result = new JObject();
             if (Version != null)

@@ -24,16 +24,16 @@
 #region
 
 using Newtonsoft.Json.Linq;
-using TinCan.Json;
+using xAPI.Json;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class SubStatement.
     /// </summary>
-    /// <seealso cref="TinCan.StatementBase" />
+    /// <seealso cref="xAPI.StatementBase" />
     /// <seealso cref="IStatementTarget" />
     public class SubStatement : StatementBase, IStatementTarget
     {
@@ -76,7 +76,7 @@ namespace TinCan
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>JObject.</returns>
-        public override JObject ToJObject(TCAPIVersion version)
+        public override JObject ToJObject(xAPIVersion version)
         {
             var result = base.ToJObject(version);
 

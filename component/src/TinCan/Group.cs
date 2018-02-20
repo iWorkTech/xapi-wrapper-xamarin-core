@@ -26,16 +26,16 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
-using TinCan.Json;
+using xAPI.Json;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class Group.
     /// </summary>
-    /// <seealso cref="TinCan.Agent" />
+    /// <seealso cref="xAPI.Agent" />
     public class Group : Agent
     {
         /// <summary>
@@ -93,7 +93,7 @@ namespace TinCan
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>JObject.</returns>
-        public override JObject ToJObject(TCAPIVersion version)
+        public override JObject ToJObject(xAPIVersion version)
         {
             var result = base.ToJObject(version);
             if (Member != null && Member.Count > 0)

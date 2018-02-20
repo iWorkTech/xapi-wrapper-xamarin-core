@@ -28,12 +28,12 @@ using Newtonsoft.Json.Linq;
 
 #endregion
 
-namespace TinCan.Json
+namespace xAPI.Json
 {
     /// <summary>
     /// Class JsonModel.
     /// </summary>
-    /// <seealso cref="TinCan.Json.IJsonModel" />
+    /// <seealso cref="xAPI.Json.IJsonModel" />
     public abstract class JsonModel : IJsonModel
     {
         // TODO: rename methods to ToJObject and ToJSON
@@ -42,7 +42,7 @@ namespace TinCan.Json
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>JObject.</returns>
-        public abstract JObject ToJObject(TCAPIVersion version);
+        public abstract JObject ToJObject(xAPIVersion version);
 
         /// <summary>
         /// To the j object.
@@ -50,7 +50,7 @@ namespace TinCan.Json
         /// <returns>JObject.</returns>
         public JObject ToJObject()
         {
-            return ToJObject(TCAPIVersion.Latest());
+            return ToJObject(xAPIVersion.Latest());
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace TinCan.Json
         /// <param name="version">The version.</param>
         /// <param name="pretty">if set to <c>true</c> [pretty].</param>
         /// <returns>System.String.</returns>
-        public string ToJSON(TCAPIVersion version, bool pretty = false)
+        public string ToJSON(xAPIVersion version, bool pretty = false)
         {
             var formatting = Formatting.None;
             if (pretty)
@@ -77,7 +77,7 @@ namespace TinCan.Json
         /// <returns>System.String.</returns>
         public string ToJSON(bool pretty = false)
         {
-            return ToJSON(TCAPIVersion.Latest(), pretty);
+            return ToJSON(xAPIVersion.Latest(), pretty);
         }
     }
 }

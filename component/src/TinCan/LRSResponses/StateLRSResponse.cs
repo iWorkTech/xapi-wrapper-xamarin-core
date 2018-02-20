@@ -23,16 +23,16 @@
 
 #region
 
-using TinCan.Documents;
+using xAPI.Documents;
 
 #endregion
 
-namespace TinCan.LRSResponses
+namespace xAPI.LRSResponses
 {
     /// <summary>
     /// Class StateLRSResponse.
     /// </summary>
-    /// <seealso cref="TinCan.LRSResponses.LRSResponse" />
+    /// <seealso cref="xAPI.LRSResponses.LRSResponse" />
     public class StateLRSResponse : LRSResponse
     {
         /// <summary>

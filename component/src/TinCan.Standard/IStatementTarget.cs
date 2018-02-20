@@ -27,7 +27,7 @@ using Newtonsoft.Json.Linq;
 
 #endregion
 
-namespace TinCan.Standard
+namespace xAPI.Standard
 {
     /// <summary>
     /// Interface StatementTarget
@@ -45,6 +45,6 @@ namespace TinCan.Standard
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>JObject.</returns>
-        JObject ToJObject(TCAPIVersion version);
+        JObject ToJObject(xAPIVersion version);
     }
 }

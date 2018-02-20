@@ -30,18 +30,18 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
-using TinCan.Documents;
-using TinCan.Json;
-using TinCan.LRSResponses;
+using xAPI.Documents;
+using xAPI.Json;
+using xAPI.LRSResponses;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     ///     Class RemoteLRS.
     /// </summary>
-    /// <seealso cref="TinCan.ILRS" />
+    /// <seealso cref="xAPI.ILRS" />
     public class RemoteLRS : ILRS
     {
         /// <summary>
@@ -58,7 +58,7 @@ namespace TinCan
         /// <param name="version">The version.</param>
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
-        public RemoteLRS(Uri endpoint, TCAPIVersion version, string username, string password)
+        public RemoteLRS(Uri endpoint, xAPIVersion version, string username, string password)
         {
             Endpoint = endpoint;
             Version = version;
@@ -72,7 +72,7 @@ namespace TinCan
         /// <param name="version">The version.</param>
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
-        public RemoteLRS(string endpoint, TCAPIVersion version, string username, string password)
+        public RemoteLRS(string endpoint, xAPIVersion version, string username, string password)
             : this(new Uri(endpoint), version, username, password)
         {
         }
@@ -84,7 +84,7 @@ namespace TinCan
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         public RemoteLRS(string endpoint, string username, string password)
-            : this(endpoint, TCAPIVersion.Latest(), username, password)
+            : this(endpoint, xAPIVersion.Latest(), username, password)
         {
         }
 
@@ -98,7 +98,7 @@ namespace TinCan
         ///     Gets or sets the version.
         /// </summary>
         /// <value>The version.</value>
-        public TCAPIVersion Version { get; set; }
+        public xAPIVersion Version { get; set; }
 
         /// <summary>
         ///     Gets or sets the authentication.

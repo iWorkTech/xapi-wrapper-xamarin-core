@@ -81,9 +81,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TinCan.Standard\TinCan.Standard.csproj">
+    <ProjectReference Include="..\TinCan.Standard\xAPI.Standard.csproj">
       <Project>{78491b47-15b6-42d0-bcb6-5e8ec6424bc5}</Project>
-      <Name>TinCan.Standard</Name>
+      <Name>xAPI.Standard</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

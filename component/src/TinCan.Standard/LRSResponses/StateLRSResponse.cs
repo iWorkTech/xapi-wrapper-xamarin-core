@@ -23,11 +23,11 @@
 
 #region
 
-using TinCan.Standard.Documents;
+using xAPI.Standard.Documents;
 
 #endregion
 
-namespace TinCan.Standard.LRSResponses
+namespace xAPI.Standard.LRSResponses
 {
     /// <summary>
     /// Class StateLRSResponse.

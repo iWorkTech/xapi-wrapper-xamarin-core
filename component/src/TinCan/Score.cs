@@ -24,16 +24,16 @@
 #region
 
 using Newtonsoft.Json.Linq;
-using TinCan.Json;
+using xAPI.Json;
 
 #endregion
 
-namespace TinCan
+namespace xAPI
 {
     /// <summary>
     /// Class Score.
     /// </summary>
-    /// <seealso cref="TinCan.Json.JsonModel" />
+    /// <seealso cref="xAPI.Json.JsonModel" />
     public class Score : JsonModel
     {
         /// <summary>
@@ -101,7 +101,7 @@ namespace TinCan
         /// </summary>
         /// <param name="version">The version.</param>
         /// <returns>JObject.</returns>
-        public override JObject ToJObject(TCAPIVersion version)
+        public override JObject ToJObject(xAPIVersion version)
         {
             var result = new JObject();
 
