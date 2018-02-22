@@ -21,13 +21,14 @@
                          'es-ES' : 'contestó'}
              }";
 
-        //'asked' : {
-        //   'id' : 'http://adlnet.gov/expapi/verbs/asked',
-        //   'display' : {'de-DE' : 'fragte',
-        //                'en-US' : 'asked',
-        //                'fr-FR' : 'a demandé',
-        //                'es-ES' : 'preguntó'}
-        //},
+        public const string ASKED = @"{
+           'id' : 'http://adlnet.gov/expapi/verbs/asked',
+           'display' : {'de-DE' : 'fragte',
+                        'en-US' : 'asked',
+                        'fr-FR' : 'a demandé',
+                        'es-ES' : 'preguntó'}
+        };
+
         //'attempted' : {
         //   'id' : 'http://adlnet.gov/expapi/verbs/attempted',
         //   'display' : {'de-DE' : 'versuchte',

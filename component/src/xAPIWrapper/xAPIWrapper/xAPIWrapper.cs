@@ -8,7 +8,6 @@ using xAPI.Standard.LRSResponses;
 
 namespace xAPIWrapper
 {
-    /// <inheritdoc cref="" />
     /// <summary>
     /// Class xAPIWrapper. - Test
     /// </summary>
