@@ -32,7 +32,7 @@ namespace xAPI.Standard.Tests
     /// <summary>
     ///     Class LanguageMapTest.
     /// </summary>
-    public class LanguageMapTest
+    public class LanguageMapTests
     {
         /// <summary>
         /// Tests the empty CTR.

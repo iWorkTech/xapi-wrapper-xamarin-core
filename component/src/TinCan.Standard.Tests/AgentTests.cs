@@ -35,7 +35,7 @@ namespace xAPI.Standard.Tests
     /// Class AgentTest.
     /// </summary>
     
-    public class AgentTest
+    public class AgentTests
     {
         /// <summary>
         /// Tests the empty CTR.

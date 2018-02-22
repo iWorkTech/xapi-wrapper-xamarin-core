@@ -73,9 +73,9 @@ namespace xAPI.Standard.Tests
         {
             var cfg = new JObject
             {
-                {"actor", Support.Agent.ToJObject()},
-                {"verb", Support.Verb.ToJObject()},
-                {"object", Support.SubStatement.ToJObject()}
+                {"actor", Supports.Agent.ToJObject()},
+                {"verb", Supports.Verb.ToJObject()},
+                {"object", Supports.SubStatement.ToJObject()}
             };
 
             var obj = new Statement(cfg);

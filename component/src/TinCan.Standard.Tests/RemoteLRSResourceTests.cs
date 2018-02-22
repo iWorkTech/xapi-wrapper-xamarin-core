@@ -38,12 +38,12 @@ namespace xAPI.Standard.Tests
     /// <summary>
     /// Class RemoteLRSResourceTest.
     /// </summary>
-    public class RemoteLRSResourceTest
+    public class RemoteLRSResourceTests
     {
         /// <summary>
         /// Initializes this instance.
         /// </summary>
-        public RemoteLRSResourceTest()
+        public RemoteLRSResourceTests()
         {
             Console.WriteLine("Running RemoteLRSResourceTest");
 
@@ -99,7 +99,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public void TestClearState()
         {
-            var lrsRes = _lrs.ClearState(Support.Activity, Support.Agent);
+            var lrsRes = _lrs.ClearState(Supports.Activity, Supports.Agent);
             Assert.True(lrsRes.Success);
         }
 
@@ -109,7 +109,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public async Task TestClearStateAsync()
         {
-            var lrsRes = await _lrs.ClearStateAsync(Support.Activity, Support.Agent).ConfigureAwait(false);
+            var lrsRes = await _lrs.ClearStateAsync(Supports.Activity, Supports.Agent).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -121,7 +121,7 @@ namespace xAPI.Standard.Tests
         {
             var doc = new ActivityProfileDocument
             {
-                Activity = Support.Activity,
+                Activity = Supports.Activity,
                 ID = Guid.NewGuid().ToString()
             };
 
@@ -137,7 +137,7 @@ namespace xAPI.Standard.Tests
         {
             var doc = new ActivityProfileDocument
             {
-                Activity = Support.Activity,
+                Activity = Supports.Activity,
                 ID = Guid.NewGuid().ToString()
             };
 
@@ -153,7 +153,7 @@ namespace xAPI.Standard.Tests
         {
             var doc = new AgentProfileDocument
             {
-                Agent = Support.Agent,
+                Agent = Supports.Agent,
                 ID = Guid.NewGuid().ToString()
             };
 
@@ -169,7 +169,7 @@ namespace xAPI.Standard.Tests
         {
             var doc = new AgentProfileDocument
             {
-                Agent = Support.Agent,
+                Agent = Supports.Agent,
                 ID = Guid.NewGuid().ToString()
             };
 
@@ -185,8 +185,8 @@ namespace xAPI.Standard.Tests
         {
             var doc = new StateDocument
             {
-                Activity = Support.Activity,
-                Agent = Support.Agent,
+                Activity = Supports.Activity,
+                Agent = Supports.Agent,
                 ID = Guid.NewGuid().ToString()
             };
 
@@ -202,8 +202,8 @@ namespace xAPI.Standard.Tests
         {
             var doc = new StateDocument
             {
-                Activity = Support.Activity,
-                Agent = Support.Agent,
+                Activity = Supports.Activity,
+                Agent = Supports.Agent,
                 ID = Guid.NewGuid().ToString()
             };
 
@@ -261,9 +261,9 @@ namespace xAPI.Standard.Tests
         {
             var query = new StatementsQuery
             {
-                Agent = Support.Agent,
-                VerbId = Support.Verb.ID,
-                ActivityId = Support.Parent.ID,
+                Agent = Supports.Agent,
+                VerbId = Supports.Verb.ID,
+                ActivityId = Supports.Parent.ID,
                 RelatedActivities = true,
                 RelatedAgents = true,
                 Format = StatementsQueryResultFormat.IDS,
@@ -283,9 +283,9 @@ namespace xAPI.Standard.Tests
         {
             var query = new StatementsQuery
             {
-                Agent = Support.Agent,
-                VerbId = Support.Verb.ID,
-                ActivityId = Support.Parent.ID,
+                Agent = Supports.Agent,
+                VerbId = Supports.Verb.ID,
+                ActivityId = Supports.Parent.ID,
                 RelatedActivities = true,
                 RelatedAgents = true,
                 Format = StatementsQueryResultFormat.IDS,
@@ -303,7 +303,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public void TestRetrieveActivityProfile()
         {
-            var lrsRes = _lrs.RetrieveActivityProfile("test", Support.Activity);
+            var lrsRes = _lrs.RetrieveActivityProfile("test", Supports.Activity);
             Assert.True(lrsRes.Success);
             Assert.IsType<ActivityProfileDocument>(lrsRes.Content);
         }
@@ -314,7 +314,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public async Task TestRetrieveActivityProfileAsync()
         {
-            var lrsRes = await _lrs.RetrieveActivityProfileAsync("test", Support.Activity).ConfigureAwait(false);
+            var lrsRes = await _lrs.RetrieveActivityProfileAsync("test", Supports.Activity).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
             Assert.IsType<ActivityProfileDocument>(lrsRes.Content);
         }
@@ -325,7 +325,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public void TestRetrieveActivityProfileIds()
         {
-            var lrsRes = _lrs.RetrieveActivityProfileIds(Support.Activity);
+            var lrsRes = _lrs.RetrieveActivityProfileIds(Supports.Activity);
             Assert.True(lrsRes.Success);
         }
 
@@ -335,7 +335,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public async Task TestRetrieveActivityProfileIdsAsync()
         {
-            var lrsRes = await _lrs.RetrieveActivityProfileIdsAsync(Support.Activity).ConfigureAwait(false);
+            var lrsRes = await _lrs.RetrieveActivityProfileIdsAsync(Supports.Activity).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -345,7 +345,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public void TestRetrieveAgentProfile()
         {
-            var lrsRes = _lrs.RetrieveAgentProfile("test", Support.Agent);
+            var lrsRes = _lrs.RetrieveAgentProfile("test", Supports.Agent);
             Assert.True(lrsRes.Success);
             Assert.IsType<AgentProfileDocument>(lrsRes.Content);
         }
@@ -356,7 +356,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public async Task TestRetrieveAgentProfileAsync()
         {
-            var lrsRes = await _lrs.RetrieveAgentProfileAsync("test", Support.Agent).ConfigureAwait(false);
+            var lrsRes = await _lrs.RetrieveAgentProfileAsync("test", Supports.Agent).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
             Assert.IsType<AgentProfileDocument>(lrsRes.Content);
         }
@@ -367,7 +367,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public void TestRetrieveAgentProfileIds()
         {
-            var lrsRes = _lrs.RetrieveAgentProfileIds(Support.Agent);
+            var lrsRes = _lrs.RetrieveAgentProfileIds(Supports.Agent);
             Assert.True(lrsRes.Success);
         }
 
@@ -377,7 +377,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public async Task TestRetrieveAgentProfileIdsAsync()
         {
-            var lrsRes = await _lrs.RetrieveAgentProfileIdsAsync(Support.Agent).ConfigureAwait(false);
+            var lrsRes = await _lrs.RetrieveAgentProfileIdsAsync(Supports.Agent).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -387,7 +387,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public void TestRetrieveState()
         {
-            var lrsRes = _lrs.RetrieveState("test", Support.Activity, Support.Agent);
+            var lrsRes = _lrs.RetrieveState("test", Supports.Activity, Supports.Agent);
             Assert.True(lrsRes.Success);
             Assert.IsType<StateDocument>(lrsRes.Content);
         }
@@ -398,7 +398,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public async Task TestRetrieveStateAsync()
         {
-            var lrsRes = await _lrs.RetrieveStateAsync("test", Support.Activity, Support.Agent).ConfigureAwait(false);
+            var lrsRes = await _lrs.RetrieveStateAsync("test", Supports.Activity, Supports.Agent).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
             Assert.IsType<StateDocument>(lrsRes.Content);
         }
@@ -409,7 +409,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public void TestRetrieveStateIds()
         {
-            var lrsRes = _lrs.RetrieveStateIds(Support.Activity, Support.Agent);
+            var lrsRes = _lrs.RetrieveStateIds(Supports.Activity, Supports.Agent);
             Assert.True(lrsRes.Success);
         }
 
@@ -419,7 +419,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public async Task TestRetrieveStateIdsAsync()
         {
-            var lrsRes = await _lrs.RetrieveStateIdsAsync(Support.Activity, Support.Agent).ConfigureAwait(false);
+            var lrsRes = await _lrs.RetrieveStateIdsAsync(Supports.Activity, Supports.Agent).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
         }
 
@@ -431,11 +431,11 @@ namespace xAPI.Standard.Tests
         {
             var statement = new Statement();
             statement.Stamp();
-            statement.Actor = Support.Agent;
-            statement.Verb = Support.Verb;
-            statement.Target = Support.Activity;
-            statement.Context = Support.Context;
-            statement.Result = Support.Result;
+            statement.Actor = Supports.Agent;
+            statement.Verb = Supports.Verb;
+            statement.Target = Supports.Activity;
+            statement.Context = Supports.Context;
+            statement.Result = Supports.Result;
 
             var saveRes = _lrs.SaveStatement(statement);
             if (!saveRes.Success) return;
@@ -453,11 +453,11 @@ namespace xAPI.Standard.Tests
         {
             var statement = new Statement();
             statement.Stamp();
-            statement.Actor = Support.Agent;
-            statement.Verb = Support.Verb;
-            statement.Target = Support.Activity;
-            statement.Context = Support.Context;
-            statement.Result = Support.Result;
+            statement.Actor = Supports.Agent;
+            statement.Verb = Supports.Verb;
+            statement.Target = Supports.Activity;
+            statement.Context = Supports.Context;
+            statement.Result = Supports.Result;
 
             var saveRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
             if (!saveRes.Success) return;
@@ -475,7 +475,7 @@ namespace xAPI.Standard.Tests
         {
             var doc = new ActivityProfileDocument
             {
-                Activity = Support.Activity,
+                Activity = Supports.Activity,
                 ID = Guid.NewGuid().ToString(),
                 Content = Encoding.UTF8.GetBytes("Test value"), 
                 Etag = "1234567890", 
@@ -496,7 +496,7 @@ namespace xAPI.Standard.Tests
         {
             var doc = new ActivityProfileDocument
             {
-                Activity = Support.Activity,
+                Activity = Supports.Activity,
                 ID = Guid.NewGuid().ToString(),
                 Content = Encoding.UTF8.GetBytes("Test value"),
                 Etag = "1234567890", 
@@ -516,7 +516,7 @@ namespace xAPI.Standard.Tests
         {
             var doc = new AgentProfileDocument
             {
-                Agent = Support.Agent,
+                Agent = Supports.Agent,
                 ID = Guid.NewGuid().ToString(),
                 Content = Encoding.UTF8.GetBytes("Test value"),
                 Etag = "1234567890", 
@@ -536,7 +536,7 @@ namespace xAPI.Standard.Tests
         {
             var doc = new AgentProfileDocument
             {
-                Agent = Support.Agent,
+                Agent = Supports.Agent,
                 ID = Guid.NewGuid().ToString(),
                 Content = Encoding.UTF8.GetBytes("Test value"),
                 Etag = "1234567890", 
@@ -556,8 +556,8 @@ namespace xAPI.Standard.Tests
         {
             var doc = new StateDocument
             {
-                Activity = Support.Activity,
-                Agent = Support.Agent,
+                Activity = Supports.Activity,
+                Agent = Supports.Agent,
                 ID = Guid.NewGuid().ToString(),
                 Content = Encoding.UTF8.GetBytes("Test value")
             };
@@ -574,8 +574,8 @@ namespace xAPI.Standard.Tests
         {
             var doc = new StateDocument
             {
-                Activity = Support.Activity,
-                Agent = Support.Agent,
+                Activity = Supports.Activity,
+                Agent = Supports.Agent,
                 ID = Guid.NewGuid().ToString(),
                 Content = Encoding.UTF8.GetBytes("Test value")
             };
@@ -592,9 +592,9 @@ namespace xAPI.Standard.Tests
         {
             var statement = new Statement
             {
-                Actor = Support.Agent,
-                Verb = Support.Verb,
-                Target = Support.Activity
+                Actor = Supports.Agent,
+                Verb = Supports.Verb,
+                Target = Supports.Activity
             };
 
             var lrsRes = _lrs.SaveStatement(statement);
@@ -611,9 +611,9 @@ namespace xAPI.Standard.Tests
         {
             var statement = new Statement
             {
-                Actor = Support.Agent,
-                Verb = Support.Verb,
-                Target = Support.Activity,
+                Actor = Supports.Agent,
+                Verb = Supports.Verb,
+                Target = Supports.Activity,
             };
 
             var lrsRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
@@ -672,17 +672,17 @@ namespace xAPI.Standard.Tests
         {
             var statement1 = new Statement
             {
-                Actor = Support.Agent,
-                Verb = Support.Verb,
-                Target = Support.Parent
+                Actor = Supports.Agent,
+                Verb = Supports.Verb,
+                Target = Supports.Parent
             };
 
             var statement2 = new Statement
             {
-                Actor = Support.Agent,
-                Verb = Support.Verb,
-                Target = Support.Activity,
-                Context = Support.Context
+                Actor = Supports.Agent,
+                Verb = Supports.Verb,
+                Target = Supports.Activity,
+                Context = Supports.Context
             };
 
             var statements = new List<Statement> { statement1, statement2 };
@@ -700,17 +700,17 @@ namespace xAPI.Standard.Tests
         {
             var statement1 = new Statement
             {
-                Actor = Support.Agent,
-                Verb = Support.Verb,
-                Target = Support.Parent
+                Actor = Supports.Agent,
+                Verb = Supports.Verb,
+                Target = Supports.Parent
             };
 
             var statement2 = new Statement
             {
-                Actor = Support.Agent,
-                Verb = Support.Verb,
-                Target = Support.Activity,
-                Context = Support.Context
+                Actor = Supports.Agent,
+                Verb = Supports.Verb,
+                Target = Supports.Activity,
+                Context = Supports.Context
             };
 
             var statements = new List<Statement> { statement1, statement2 };
@@ -728,9 +728,9 @@ namespace xAPI.Standard.Tests
         {
             var statement = new Statement();
             statement.Stamp();
-            statement.Actor = Support.Agent;
-            statement.Verb = Support.Verb;
-            statement.Target = Support.StatementRef;
+            statement.Actor = Supports.Agent;
+            statement.Verb = Supports.Verb;
+            statement.Target = Supports.StatementRef;
 
             var lrsRes = _lrs.SaveStatement(statement);
             Assert.True(lrsRes.Success);
@@ -745,9 +745,9 @@ namespace xAPI.Standard.Tests
         {
             var statement = new Statement();
             statement.Stamp();
-            statement.Actor = Support.Agent;
-            statement.Verb = Support.Verb;
-            statement.Target = Support.StatementRef;
+            statement.Actor = Supports.Agent;
+            statement.Verb = Supports.Verb;
+            statement.Target = Supports.StatementRef;
 
             var lrsRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
@@ -762,9 +762,9 @@ namespace xAPI.Standard.Tests
         {
             var statement = new Statement();
             statement.Stamp();
-            statement.Actor = Support.Agent;
-            statement.Verb = Support.Verb;
-            statement.Target = Support.SubStatement;
+            statement.Actor = Supports.Agent;
+            statement.Verb = Supports.Verb;
+            statement.Target = Supports.SubStatement;
 
             Console.WriteLine(statement.ToJSON(true));
 
@@ -781,9 +781,9 @@ namespace xAPI.Standard.Tests
         {
             var statement = new Statement();
             statement.Stamp();
-            statement.Actor = Support.Agent;
-            statement.Verb = Support.Verb;
-            statement.Target = Support.SubStatement;
+            statement.Actor = Supports.Agent;
+            statement.Verb = Supports.Verb;
+            statement.Target = Supports.SubStatement;
 
             Console.WriteLine(statement.ToJSON(true));
 
@@ -800,9 +800,9 @@ namespace xAPI.Standard.Tests
         {
             var statement = new Statement();
             statement.Stamp();
-            statement.Actor = Support.Agent;
-            statement.Verb = Support.Verb;
-            statement.Target = Support.Activity;
+            statement.Actor = Supports.Agent;
+            statement.Verb = Supports.Verb;
+            statement.Target = Supports.Activity;
 
             var lrsRes = _lrs.SaveStatement(statement);
             Assert.True(lrsRes.Success);
@@ -817,9 +817,9 @@ namespace xAPI.Standard.Tests
         {
             var statement = new Statement();
             statement.Stamp();
-            statement.Actor = Support.Agent;
-            statement.Verb = Support.Verb;
-            statement.Target = Support.Activity;
+            statement.Actor = Supports.Agent;
+            statement.Verb = Supports.Verb;
+            statement.Target = Supports.Activity;
 
             var lrsRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
             Assert.True(lrsRes.Success);
@@ -833,7 +833,7 @@ namespace xAPI.Standard.Tests
         public void TestVoidStatement()
         {
             var toVoid = Guid.NewGuid();
-            var lrsRes = _lrs.VoidStatement(toVoid, Support.Agent);
+            var lrsRes = _lrs.VoidStatement(toVoid, Supports.Agent);
 
             Assert.True(lrsRes.Success, "LRS response successful");
             Assert.Equal(new Uri("http://adlnet.gov/expapi/verbs/voided"), lrsRes.Content.Verb.ID);
@@ -847,7 +847,7 @@ namespace xAPI.Standard.Tests
         public async Task TestVoidStatementAsync()
         {
             var toVoid = Guid.NewGuid();
-            var lrsRes = await _lrs.VoidStatementAsync(toVoid, Support.Agent).ConfigureAwait(false);
+            var lrsRes = await _lrs.VoidStatementAsync(toVoid, Supports.Agent).ConfigureAwait(false);
 
             Assert.True(lrsRes.Success, "LRS response successful");
             Assert.Equal(new Uri("http://adlnet.gov/expapi/verbs/voided"), lrsRes.Content.Verb.ID);

@@ -33,7 +33,7 @@ namespace xAPI.Standard.Tests
     /// <summary>
     /// Class Support.
     /// </summary>
-    static class Support
+    static class Supports
     {
         /// <summary>
         /// The agent
@@ -73,9 +73,9 @@ namespace xAPI.Standard.Tests
         public static SubStatement SubStatement;
 
         /// <summary>
-        /// Initializes static members of the <see cref="Support"/> class.
+        /// Initializes static members of the <see cref="Supports"/> class.
         /// </summary>
-        static Support()
+        static Supports()
         {
             Agent = new Agent { Mbox = "mailto:so_moni@hotmail.com", Name = "So Moni", Account = new AgentAccount
             {

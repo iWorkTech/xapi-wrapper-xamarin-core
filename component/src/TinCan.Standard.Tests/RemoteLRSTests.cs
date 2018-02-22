@@ -32,7 +32,7 @@ namespace xAPI.Standard.Tests
     /// <summary>
     ///     Class RemoteLRSTest.
     /// </summary>
-    public class RemoteLRSTest
+    public class RemoteLRSTests
     {
         /// <summary>
         /// Tests the empty CTR.

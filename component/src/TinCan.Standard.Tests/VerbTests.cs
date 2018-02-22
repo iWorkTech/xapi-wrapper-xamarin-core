@@ -36,7 +36,7 @@ namespace xAPI.Standard.Tests
     /// Class VerbTest.
     /// </summary>
     
-    public class VerbTest
+    public class VerbTests
     {
         /// <summary>
         /// Tests the empty CTR.
