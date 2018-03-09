@@ -33,7 +33,7 @@ namespace xAPI.Standard.Tests
     /// <summary>
     /// Class Support.
     /// </summary>
-    static class Support
+    static class Supports
     {
         /// <summary>
         /// The agent
@@ -73,9 +73,9 @@ namespace xAPI.Standard.Tests
         public static SubStatement SubStatement;
 
         /// <summary>
-        /// Initializes static members of the <see cref="Support"/> class.
+        /// Initializes static members of the <see cref="Supports"/> class.
         /// </summary>
-        static Support()
+        static Supports()
         {
             Agent = new Agent { Mbox = "mailto:so_moni@hotmail.com", Name = "So Moni", Account = new AgentAccount
             {
@@ -118,13 +118,13 @@ namespace xAPI.Standard.Tests
             {
                 Registration = Guid.NewGuid(),
                 Statement = StatementRef,
-                ContextActivities = new ContextActivities { Parent = new List<Activity> { Parent } }
+                ContextActivities = new ContextActivities { Parent = new List<Activity> { Activity } }
             };
 
             Score = new Score
             {
                 Raw = 97,
-                Scaled = 0.97,
+                Scaled = 1,
                 Max = 100,
                 Min = 0
             };
@@ -134,7 +134,7 @@ namespace xAPI.Standard.Tests
                 Score = Score,
                 Success = true,
                 Completion = true,
-                Duration = new TimeSpan(1, 2, 16, 43)
+                Duration = new TimeSpan(0,0,2,0)
             };
 
             SubStatement = new SubStatement

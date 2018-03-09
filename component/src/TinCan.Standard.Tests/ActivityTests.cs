@@ -1,7 +1,7 @@
 ﻿#region License and Warranty Information
 
 // ==========================================================
-//  <copyright file="ActivityTest.cs" company="iWork Technologies">
+//  <copyright file="ActivityTests.cs" company="iWork Technologies">
 //  Copyright (c) 2015 All Right Reserved, http://www.iworktech.com/
 //
 //  This source is subject to the iWork Technologies Permissive License.
@@ -31,10 +31,10 @@ using Xunit;
 namespace xAPI.Standard.Tests
 {
     /// <summary>
-    /// Class ActivityTest.
+    /// Class ActivityTests.
     /// </summary>
 
-    public class ActivityTest
+    public class ActivityTests
     {
         /// <summary>
         /// Tests the activity identifier case.

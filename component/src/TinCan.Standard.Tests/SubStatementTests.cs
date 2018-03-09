@@ -35,7 +35,7 @@ namespace xAPI.Standard.Tests
     /// Class SubStatementTest.
     /// </summary>
     
-    public class SubStatementTest
+    public class SubStatementTests
     {
         /// <summary>
         /// Initializes this instance.
@@ -70,9 +70,9 @@ namespace xAPI.Standard.Tests
         {
             var cfg = new JObject
             {
-                {"actor", Support.Agent.ToJObject()},
-                {"verb", Support.Verb.ToJObject()},
-                {"object", Support.SubStatement.ToJObject()}
+                {"actor", Supports.Agent.ToJObject()},
+                {"verb", Supports.Verb.ToJObject()},
+                {"object", Supports.SubStatement.ToJObject()}
             };
 
             var obj = new SubStatement(cfg);

@@ -9,13 +9,13 @@ namespace xAPIWrapper
     /// <summary>
     ///     Interface IxAPIWrapper
     /// </summary>
-    internal interface IxAPIWrapper
+    internal interface IxApiWrapper
     {
         /// <summary>
         ///     Abouts this instance.
         /// </summary>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        Task<AboutLRSResponse> About();
+        Task<AboutLRSResponse> AboutAsync();
 
         /// <summary>
         ///     Changes the configuration.
@@ -48,21 +48,21 @@ namespace xAPIWrapper
         /// </summary>
         /// <param name="statement">The statement.</param>
         /// <returns>LRSResponse.</returns>
-        Task<StatementLRSResponse> SendStatement(Statement statement);
+        Task<StatementLRSResponse> SendStatementAsync(Statement statement);
 
         /// <summary>
         ///     Sends the statements.
         /// </summary>
         /// <param name="statements">The statements.</param>
         /// <returns>LRSResponse.</returns>
-        Task<StatementsResultLRSResponse> SendStatements(List<Statement> statements);
+        Task<StatementsResultLRSResponse> SendStatementsAsync(List<Statement> statements);
 
         /// <summary>
         ///     Gets the statements.
         /// </summary>
         /// <param name="searchParams">The search parameters.</param>
         /// <returns>List&lt;Statement&gt;.</returns>
-        Task<StatementsResultLRSResponse> GetStatements(StatementsQuery searchParams);
+        Task<StatementsResultLRSResponse> GetStatementsAsync(StatementsQuery searchParams);
 
         /// <summary>
         ///     Gets the statements.
@@ -70,7 +70,7 @@ namespace xAPIWrapper
         /// <param name="since"></param>
         /// <param name="limit"></param>
         /// <returns>List&lt;Statement&gt;.</returns>
-        Task<StatementsResultLRSResponse> GetStatements(DateTime since, int limit);
+        Task<StatementsResultLRSResponse> GetStatementsAsync(DateTime since, int limit);
 
         /// <summary>
         /// Gets the activities.
@@ -78,7 +78,7 @@ namespace xAPIWrapper
         /// <param name="activityId">The activity identifier.</param>
         /// <param name="activity">The activity.</param>
         /// <returns>List&lt;Activity&gt;.</returns>
-        Task<ActivityProfileLRSResponse> GetActivity(string activityId, Activity activity);
+        Task<ActivityProfileLRSResponse> GetActivityAsync(string activityId, Activity activity);
 
         /// <summary>
         ///     Sends the state.
@@ -91,7 +91,7 @@ namespace xAPIWrapper
         /// <param name="matchHash">The match hash.</param>
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>LRSResponse.</returns>
-        Task<LRSResponse> SendState(string activityId, Agent agent, string stateId, Guid? registration, string stateVal,
+        Task<LRSResponse> SendStateAsync(string activityId, Agent agent, string stateId, Guid? registration, string stateVal,
             string matchHash, string noneMatchHash);
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace xAPIWrapper
         /// <param name="matchHash">The match hash.</param>
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        Task<StateLRSResponse> GetState(string activityId, Agent agent, string stateId, Guid? registration, string stateVal,
+        Task<StateLRSResponse> GetStateAsync(string activityId, Agent agent, string stateId, Guid? registration, string stateVal,
             string matchHash, string noneMatchHash);
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace xAPIWrapper
         /// <param name="matchHash">The match hash.</param>
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        Task<LRSResponse> DeleteState(string activityId, Agent agent, string stateId, Guid? registration,
+        Task<LRSResponse> DeleteStateAsync(string activityId, Agent agent, string stateId, Guid? registration,
             string stateVal,
             string matchHash, string noneMatchHash);
 
@@ -132,7 +132,7 @@ namespace xAPIWrapper
         /// <param name="matchHash">The match hash.</param>
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        Task<LRSResponse> SendActivityProfile(string activityId, string profileId, string profilEval, string matchHash,
+        Task<LRSResponse> SendActivityProfileAsync(string activityId, string profileId, string profilEval, string matchHash,
             string noneMatchHash);
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace xAPIWrapper
         /// <param name="profileId">The profile identifier.</param>
         /// <param name="since">The since.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        Task<ActivityProfileLRSResponse> GetActivityProfile(string activityId, string profileId, DateTime? since);
+        Task<ActivityProfileLRSResponse> GetActivityProfileAsync(string activityId, string profileId, DateTime? since);
 
         /// <summary>
         ///     Deletes the activity profile.
@@ -152,7 +152,7 @@ namespace xAPIWrapper
         /// <param name="matchHash">The match hash.</param>
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        Task<LRSResponse> DeleteActivityProfile(string activityId, string profileId, string matchHash,
+        Task<LRSResponse> DeleteActivityProfileAsync(string activityId, string profileId, string matchHash,
             string noneMatchHash);
 
         /// <summary>
@@ -160,7 +160,7 @@ namespace xAPIWrapper
         /// </summary>
         /// <param name="agent">The agent.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        Task<AgentProfileLRSResponse> GetAgent(Agent agent);
+        Task<AgentProfileLRSResponse> GetAgentAsync(Agent agent);
 
         /// <summary>
         ///     Sends the agent profile.
@@ -171,7 +171,7 @@ namespace xAPIWrapper
         /// <param name="matchHash">The match hash.</param>
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        Task<LRSResponse> SendAgentProfile(Agent agent, string profileId, string profilEval, string matchHash,
+        Task<LRSResponse> SendAgentProfileAsync(Agent agent, string profileId, string profilEval, string matchHash,
             string noneMatchHash);
 
         /// <summary>
@@ -181,7 +181,7 @@ namespace xAPIWrapper
         /// <param name="profileId">The profile identifier.</param>
         /// <param name="since">The since.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        Task<LRSResponse> GetAgentProfile(string agentId, string profileId, DateTime? since);
+        Task<LRSResponse> GetAgentProfileAsync(string agentId, string profileId, DateTime? since);
 
         /// <summary>
         ///     Deletes the agent profile.
@@ -191,6 +191,6 @@ namespace xAPIWrapper
         /// <param name="matchHash">The match hash.</param>
         /// <param name="noneMatchHash">The none match hash.</param>
         /// <returns>Task&lt;LRSResponse&gt;.</returns>
-        Task<LRSResponse> DeleteAgentProfile(Agent agent, string profileId, string matchHash, string noneMatchHash);
+        Task<LRSResponse> DeleteAgentProfileAsync(Agent agent, string profileId, string matchHash, string noneMatchHash);
     }
 }
