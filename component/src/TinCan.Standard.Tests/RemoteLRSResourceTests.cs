@@ -1,4 +1,17 @@
-﻿#region License and Warranty Information
+﻿// ***********************************************************************
+// Assembly         : xAPI.Standard.Tests
+// Author           : ashedge
+// Created          : 03-09-2018
+//
+// Last Modified By : ashedge
+// Last Modified On : 03-09-2018
+// ***********************************************************************
+// <copyright file="RemoteLRSResourceTests.cs" company="xAPI.Standard.Tests">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#region License and Warranty Information
 
 // ==========================================================
 //  <copyright file="RemoteLRSResourceTest.cs" company="iWork Technologies">
@@ -106,6 +119,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the state of the clear.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestClearStateAsync()
         {
@@ -132,6 +146,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the delete activity profile.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestDeleteActivityProfileAsync()
         {
@@ -164,6 +179,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the delete agent profile.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestDeleteAgentProfileAsync()
         {
@@ -197,6 +213,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the state of the delete.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestDeleteStateAsync()
         {
@@ -234,6 +251,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the more statements.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestMoreStatementsAsync()
         {
@@ -278,6 +296,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the query statements.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestQueryStatementsAsync()
         {
@@ -311,6 +330,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the retrieve activity profile.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestRetrieveActivityProfileAsync()
         {
@@ -332,6 +352,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the retrieve activity profile ids.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestRetrieveActivityProfileIdsAsync()
         {
@@ -353,6 +374,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the retrieve agent profile.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestRetrieveAgentProfileAsync()
         {
@@ -374,6 +396,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the retrieve agent profile ids.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestRetrieveAgentProfileIdsAsync()
         {
@@ -395,6 +418,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the state of the retrieve.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestRetrieveStateAsync()
         {
@@ -416,6 +440,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the retrieve state ids.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestRetrieveStateIdsAsync()
         {
@@ -448,6 +473,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the retrieve statement.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestRetrieveStatementAsync()
         {
@@ -491,6 +517,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the save activity profile.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestSaveActivityProfileAsync()
         {
@@ -531,6 +558,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the save agent profile.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestSaveAgentProfileAsync()
         {
@@ -569,6 +597,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the state of the save.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestSaveStateAsync()
         {
@@ -606,6 +635,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the save statement.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestSaveStatementAsync()
         {
@@ -624,48 +654,6 @@ namespace xAPI.Standard.Tests
 
         /// <summary>
         /// Tests the save statement.
-        /// </summary>
-        //[Fact]
-        //public async Task TestSaveStatementWithContextAsync()
-        //{
-        //    var statement = new Statement
-        //    {
-        //        Actor = Support.Agent,
-        //        Verb = Support.Verb,
-        //        Target = Support.Parent,
-        //        Context = Support.Context,
-        //        Result = Support.Result, 
-        //        Version = TCAPIVersion.V103
-        //    };
-
-        //    var lrsRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
-        //    Assert.True(lrsRes.Success);
-        //    Assert.Equal(statement, lrsRes.Content);
-        //    Assert.NotNull(lrsRes.Content.ID);
-        //}
-
-        /// <summary>
-        /// Tests the save statement.
-        /// </summary>
-        //[Fact]
-        //public async Task TestSaveStatementWithResultAsync()
-        //{
-        //    var statement = new Statement
-        //    {
-        //        Actor = Support.Agent,
-        //        Verb = Support.Verb,
-        //        Target = Support.Activity,
-        //        Result = Support.Result
-        //    };
-
-        //    var lrsRes = await _lrs.SaveStatementAsync(statement).ConfigureAwait(false);
-        //    Assert.True(lrsRes.Success);
-        //    Assert.Equal(statement, lrsRes.Content);
-        //    Assert.NotNull(lrsRes.Content.ID);
-        //}
-
-        /// <summary>
-        /// Tests the save statements.
         /// </summary>
         [Fact]
         public void TestSaveStatements()
@@ -695,6 +683,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the save statements.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestSaveStatementsAsync()
         {
@@ -740,6 +729,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the save statement statement reference.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestSaveStatementStatementRefAsync()
         {
@@ -776,6 +766,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the save statement sub statement.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestSaveStatementSubStatementAsync()
         {
@@ -812,6 +803,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the save statement with identifier.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestSaveStatementWithIDAsync()
         {
@@ -843,6 +835,7 @@ namespace xAPI.Standard.Tests
         /// <summary>
         /// Tests the void statement.
         /// </summary>
+        /// <returns>Task.</returns>
         [Fact]
         public async Task TestVoidStatementAsync()
         {

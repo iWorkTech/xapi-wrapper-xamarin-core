@@ -1,4 +1,17 @@
-﻿#region License and Warranty Information
+﻿// ***********************************************************************
+// Assembly         : xAPI.Standard
+// Author           : ashedge
+// Created          : 11-16-2017
+//
+// Last Modified By : ashedge
+// Last Modified On : 02-19-2018
+// ***********************************************************************
+// <copyright file="StateDocument.cs" company="xAPI.Standard">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#region License and Warranty Information
 
 // ==========================================================
 //  <copyright file="StateDocument.cs" company="iWork Technologies">
@@ -32,6 +45,7 @@ namespace xAPI.Standard.Documents
     /// <summary>
     /// Class StateDocument.
     /// </summary>
+    /// <seealso cref="xAPI.Standard.Documents.Document" />
     /// <seealso cref="Document" />
     public class StateDocument : Document
     {

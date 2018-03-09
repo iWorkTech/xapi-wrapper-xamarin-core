@@ -1,4 +1,17 @@
-﻿#region License and Warranty Information
+﻿// ***********************************************************************
+// Assembly         : xAPI.Standard
+// Author           : ashedge
+// Created          : 11-16-2017
+//
+// Last Modified By : ashedge
+// Last Modified On : 02-19-2018
+// ***********************************************************************
+// <copyright file="StringOfJSON.cs" company="xAPI.Standard">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#region License and Warranty Information
 
 // ==========================================================
 //  <copyright file="StringOfJSON.cs" company="iWork Technologies">
@@ -41,7 +54,7 @@ namespace xAPI.Standard.Json
         private readonly string _source;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StringOfJSON"/> class.
+        /// Initializes a new instance of the <see cref="StringOfJSON" /> class.
         /// </summary>
         /// <param name="json">The json.</param>
         public StringOfJSON(string json)
@@ -53,7 +66,7 @@ namespace xAPI.Standard.Json
         /// To the j object.
         /// </summary>
         /// <returns>JObject.</returns>
-        public JObject toJObject()
+        public JObject ToJObject()
         {
             return string.IsNullOrWhiteSpace(_source) ? null : JObject.Parse(_source);
         }

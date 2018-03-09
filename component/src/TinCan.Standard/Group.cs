@@ -54,7 +54,7 @@ namespace xAPI.Standard
         /// Initializes a new instance of the <see cref="Group"/> class.
         /// </summary>
         /// <param name="json">The json.</param>
-        public Group(StringOfJSON json) : this(json.toJObject())
+        public Group(StringOfJSON json) : this(json.ToJObject())
         {
         }
 

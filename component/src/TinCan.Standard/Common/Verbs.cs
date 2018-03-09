@@ -1,10 +1,25 @@
-﻿namespace xAPI.Standard.Common
+﻿// ***********************************************************************
+// Assembly         : xAPI.Standard
+// Author           : ashedge
+// Created          : 03-09-2018
+//
+// Last Modified By : ashedge
+// Last Modified On : 03-09-2018
+// ***********************************************************************
+// <copyright file="Verbs.cs" company="xAPI.Standard">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+namespace xAPI.Standard.Common
 {
     /// <summary>
+    /// Class Verbs.
     /// </summary>
     public static class Verbs
     {
         /// <summary>
+        /// The abandoned
         /// </summary>
         public const string ABANDONED = @"{
             'id' : 'https://w3id.org/xapi/adl/verbs/abandoned',
@@ -12,6 +27,7 @@
             }";
 
         /// <summary>
+        /// The answered
         /// </summary>
         public const string ANSWERED = @"{
             'id' : 'http://adlnet.gov/expapi/verbs/answered',
@@ -21,6 +37,9 @@
                          'es-ES' : 'contestó'}
              }";
 
+        /// <summary>
+        /// The asked
+        /// </summary>
         public const string ASKED = @"{
            'id' : 'http://adlnet.gov/expapi/verbs/asked',
            'display' : {'de-DE' : 'fragte',

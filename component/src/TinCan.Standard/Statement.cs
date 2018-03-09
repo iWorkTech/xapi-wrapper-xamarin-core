@@ -55,7 +55,7 @@ namespace xAPI.Standard
         /// Initializes a new instance of the <see cref="Statement"/> class.
         /// </summary>
         /// <param name="json">The json.</param>
-        public Statement(StringOfJSON json) : this(json.toJObject())
+        public Statement(StringOfJSON json) : this(json.ToJObject())
         {
         }
 

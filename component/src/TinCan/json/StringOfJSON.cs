@@ -1,4 +1,17 @@
-﻿#region License and Warranty Information
+﻿// ***********************************************************************
+// Assembly         : xAPI
+// Author           : ashedge
+// Created          : 11-16-2017
+//
+// Last Modified By : ashedge
+// Last Modified On : 02-19-2018
+// ***********************************************************************
+// <copyright file="StringOfJSON.cs" company="xAPI">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#region License and Warranty Information
 
 // ==========================================================
 //  <copyright file="StringOfJSON.cs" company="iWork Technologies">
@@ -37,15 +50,15 @@ namespace xAPI.Json
         /// <summary>
         /// The source
         /// </summary>
-        private readonly string source;
+        private readonly string _source;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StringOfJSON"/> class.
+        /// Initializes a new instance of the <see cref="StringOfJSON" /> class.
         /// </summary>
         /// <param name="json">The json.</param>
         public StringOfJSON(string json)
         {
-            source = json;
+            _source = json;
         }
 
         /// <summary>
@@ -54,12 +67,12 @@ namespace xAPI.Json
         /// <returns>JObject.</returns>
         public JObject toJObject()
         {
-            if (source == null)
+            if (_source == null)
             {
                 return null;
             }
 
-            return JObject.Parse(source);
+            return JObject.Parse(_source);
         }
 
         /// <summary>
@@ -68,7 +81,7 @@ namespace xAPI.Json
         /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
         public override string ToString()
         {
-            return source;
+            return _source;
         }
     }
 }

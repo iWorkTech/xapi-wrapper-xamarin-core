@@ -1,4 +1,17 @@
-﻿#region License and Warranty Information
+﻿// ***********************************************************************
+// Assembly         : xAPI.Standard.Tests
+// Author           : ashedge
+// Created          : 11-16-2017
+//
+// Last Modified By : ashedge
+// Last Modified On : 03-09-2018
+// ***********************************************************************
+// <copyright file="StatementTest.cs" company="xAPI.Standard.Tests">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#region License and Warranty Information
 
 // ==========================================================
 //  <copyright file="StatementTest.cs" company="iWork Technologies">
@@ -30,10 +43,11 @@ using Xunit;
 #endregion
 
 namespace xAPI.Standard.Tests
-{ /// <summary>
-  /// Class StatementTest.
-  /// </summary>
-    
+{
+    /// <summary>
+    /// Class StatementTest.
+    /// </summary>
+
     public class StatementTest
     {
         /// <summary>

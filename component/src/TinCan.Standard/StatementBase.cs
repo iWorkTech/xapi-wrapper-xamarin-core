@@ -53,7 +53,7 @@ namespace xAPI.Standard
         /// Initializes a new instance of the <see cref="StatementBase"/> class.
         /// </summary>
         /// <param name="json">The json.</param>
-        protected StatementBase(StringOfJSON json) : this(json.toJObject())
+        protected StatementBase(StringOfJSON json) : this(json.ToJObject())
         {
         }
 

@@ -59,7 +59,7 @@ namespace xAPI.Standard
         /// Initializes a new instance of the <see cref="Activity"/> class.
         /// </summary>
         /// <param name="json">The json.</param>
-        public Activity(StringOfJSON json) : this(json.toJObject())
+        public Activity(StringOfJSON json) : this(json.ToJObject())
         {
         }
 

@@ -48,7 +48,7 @@ namespace xAPI.Standard
         /// Initializes a new instance of the <see cref="Result"/> class.
         /// </summary>
         /// <param name="json">The json.</param>
-        public Result(StringOfJSON json) : this(json.toJObject())
+        public Result(StringOfJSON json) : this(json.ToJObject())
         {
         }
 

@@ -48,7 +48,7 @@ namespace xAPI.Standard
         /// Initializes a new instance of the <see cref="Context"/> class.
         /// </summary>
         /// <param name="json">The json.</param>
-        public Context(StringOfJSON json) : this(json.toJObject())
+        public Context(StringOfJSON json) : this(json.ToJObject())
         {
         }
 

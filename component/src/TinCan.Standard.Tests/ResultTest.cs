@@ -1,4 +1,17 @@
-﻿#region License and Warranty Information
+﻿// ***********************************************************************
+// Assembly         : xAPI.Standard.Tests
+// Author           : ashedge
+// Created          : 11-16-2017
+//
+// Last Modified By : ashedge
+// Last Modified On : 02-19-2018
+// ***********************************************************************
+// <copyright file="ResultTest.cs" company="xAPI.Standard.Tests">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#region License and Warranty Information
 
 // ==========================================================
 //  <copyright file="ResultTest.cs" company="iWork Technologies">
@@ -31,7 +44,7 @@ using xAPI.Standard.Json;
 namespace xAPI.Standard.Tests
 {
     /// <summary>
-    ///     Class ResultTest.
+    /// Class ResultTest.
     /// </summary>
     public class ResultTest
     {

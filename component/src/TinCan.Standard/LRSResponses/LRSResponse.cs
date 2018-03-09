@@ -1,4 +1,17 @@
-﻿#region License and Warranty Information
+﻿// ***********************************************************************
+// Assembly         : xAPI.Standard
+// Author           : ashedge
+// Created          : 11-16-2017
+//
+// Last Modified By : ashedge
+// Last Modified On : 02-19-2018
+// ***********************************************************************
+// <copyright file="LRSResponse.cs" company="xAPI.Standard">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#region License and Warranty Information
 
 // ==========================================================
 //  <copyright file="LRSResponse.cs" company="iWork Technologies">
@@ -40,7 +53,7 @@ namespace xAPI.Standard.LRSResponses
     public class LRSResponse
     {
         /// <summary>
-        /// Gets or sets a value indicating whether this <see cref="LRSResponse"/> is success.
+        /// Gets or sets a value indicating whether this <see cref="LRSResponse" /> is success.
         /// </summary>
         /// <value><c>true</c> if success; otherwise, <c>false</c>.</value>
         public bool Success { get; set; }

@@ -1,4 +1,17 @@
-﻿#region License and Warranty Information
+﻿// ***********************************************************************
+// Assembly         : xAPI.Standard.Tests
+// Author           : ashedge
+// Created          : 03-09-2018
+//
+// Last Modified By : ashedge
+// Last Modified On : 03-09-2018
+// ***********************************************************************
+// <copyright file="RemoteLRSTests.cs" company="xAPI.Standard.Tests">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#region License and Warranty Information
 
 // ==========================================================
 //  <copyright file="RemoteLRSTest.cs" company="iWork Technologies">
@@ -30,7 +43,7 @@ using Xunit;
 namespace xAPI.Standard.Tests
 {
     /// <summary>
-    ///     Class RemoteLRSTest.
+    /// Class RemoteLRSTest.
     /// </summary>
     public class RemoteLRSTests
     {

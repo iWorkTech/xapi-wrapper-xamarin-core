@@ -47,7 +47,7 @@ namespace xAPI.Standard
         /// Initializes a new instance of the <see cref="Score"/> class.
         /// </summary>
         /// <param name="json">The json.</param>
-        public Score(StringOfJSON json) : this(json.toJObject())
+        public Score(StringOfJSON json) : this(json.ToJObject())
         {
         }
 

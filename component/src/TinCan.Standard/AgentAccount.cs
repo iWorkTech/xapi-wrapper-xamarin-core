@@ -48,7 +48,7 @@ namespace xAPI.Standard
         /// Initializes a new instance of the <see cref="AgentAccount"/> class.
         /// </summary>
         /// <param name="json">The json.</param>
-        public AgentAccount(StringOfJSON json) : this(json.toJObject())
+        public AgentAccount(StringOfJSON json) : this(json.ToJObject())
         {
         }
 

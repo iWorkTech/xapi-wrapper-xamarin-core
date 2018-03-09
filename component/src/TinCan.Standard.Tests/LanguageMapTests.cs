@@ -1,4 +1,17 @@
-﻿#region License and Warranty Information
+﻿// ***********************************************************************
+// Assembly         : xAPI.Standard.Tests
+// Author           : ashedge
+// Created          : 03-09-2018
+//
+// Last Modified By : ashedge
+// Last Modified On : 03-09-2018
+// ***********************************************************************
+// <copyright file="LanguageMapTests.cs" company="xAPI.Standard.Tests">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#region License and Warranty Information
 
 // ==========================================================
 //  <copyright file="LanguageMapTest.cs" company="iWork Technologies">
@@ -30,7 +43,7 @@ using Xunit;
 namespace xAPI.Standard.Tests
 {
     /// <summary>
-    ///     Class LanguageMapTest.
+    /// Class LanguageMapTest.
     /// </summary>
     public class LanguageMapTests
     {

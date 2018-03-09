@@ -1,4 +1,17 @@
-﻿#region License and Warranty Information
+﻿// ***********************************************************************
+// Assembly         : xAPI.Standard.Tests
+// Author           : ashedge
+// Created          : 03-09-2018
+//
+// Last Modified By : ashedge
+// Last Modified On : 03-09-2018
+// ***********************************************************************
+// <copyright file="Supports.cs" company="xAPI.Standard.Tests">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#region License and Warranty Information
 
 // ==========================================================
 //  <copyright file="Support.cs" company="iWork Technologies">
@@ -73,7 +86,7 @@ namespace xAPI.Standard.Tests
         public static SubStatement SubStatement;
 
         /// <summary>
-        /// Initializes static members of the <see cref="Supports"/> class.
+        /// Initializes static members of the <see cref="Supports" /> class.
         /// </summary>
         static Supports()
         {

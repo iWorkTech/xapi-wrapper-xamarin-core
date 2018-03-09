@@ -53,7 +53,7 @@ namespace xAPI.Standard
         /// Initializes a new instance of the <see cref="SubStatement"/> class.
         /// </summary>
         /// <param name="json">The json.</param>
-        public SubStatement(StringOfJSON json) : this(json.toJObject())
+        public SubStatement(StringOfJSON json) : this(json.ToJObject())
         {
         }
 

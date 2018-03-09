@@ -1,4 +1,17 @@
-﻿#region License and Warranty Information
+﻿// ***********************************************************************
+// Assembly         : xAPI.Standard.Tests
+// Author           : ashedge
+// Created          : 03-09-2018
+//
+// Last Modified By : ashedge
+// Last Modified On : 03-09-2018
+// ***********************************************************************
+// <copyright file="SubStatementTests.cs" company="xAPI.Standard.Tests">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#region License and Warranty Information
 
 // ==========================================================
 //  <copyright file="SubStatementTest.cs" company="iWork Technologies">
@@ -34,7 +47,7 @@ namespace xAPI.Standard.Tests
     /// <summary>
     /// Class SubStatementTest.
     /// </summary>
-    
+
     public class SubStatementTests
     {
         /// <summary>

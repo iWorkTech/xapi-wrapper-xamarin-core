@@ -1,4 +1,17 @@
-﻿#region License and Warranty Information
+﻿// ***********************************************************************
+// Assembly         : xAPI.Standard
+// Author           : ashedge
+// Created          : 11-16-2017
+//
+// Last Modified By : ashedge
+// Last Modified On : 02-19-2018
+// ***********************************************************************
+// <copyright file="ActivityProfileDocument.cs" company="xAPI.Standard">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#region License and Warranty Information
 
 // ==========================================================
 //  <copyright file="ActivityProfileDocument.cs" company="iWork Technologies">
@@ -26,6 +39,7 @@ namespace xAPI.Standard.Documents
     /// <summary>
     /// Class ActivityProfileDocument.
     /// </summary>
+    /// <seealso cref="xAPI.Standard.Documents.Document" />
     /// <seealso cref="Document" />
     public class ActivityProfileDocument : Document
     {

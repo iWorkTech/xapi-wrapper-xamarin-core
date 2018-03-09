@@ -1,4 +1,17 @@
-﻿#region License and Warranty Information
+﻿// ***********************************************************************
+// Assembly         : xAPI.Standard
+// Author           : ashedge
+// Created          : 11-16-2017
+//
+// Last Modified By : ashedge
+// Last Modified On : 02-19-2018
+// ***********************************************************************
+// <copyright file="JsonModel.cs" company="xAPI.Standard">
+//     Copyright (c) . All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+#region License and Warranty Information
 
 // ==========================================================
 //  <copyright file="JsonModel.cs" company="iWork Technologies">
@@ -33,6 +46,7 @@ namespace xAPI.Standard.Json
     /// <summary>
     /// Class JsonModel.
     /// </summary>
+    /// <seealso cref="xAPI.Standard.Json.IJsonModel" />
     /// <seealso cref="IJsonModel" />
     public abstract class JsonModel : IJsonModel
     {

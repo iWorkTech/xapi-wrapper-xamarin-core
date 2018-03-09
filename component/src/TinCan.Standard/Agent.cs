@@ -53,7 +53,7 @@ namespace xAPI.Standard
         /// Initializes a new instance of the <see cref="Agent"/> class.
         /// </summary>
         /// <param name="json">The json.</param>
-        public Agent(StringOfJSON json) : this(json.toJObject())
+        public Agent(StringOfJSON json) : this(json.ToJObject())
         {
         }
 

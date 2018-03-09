@@ -49,7 +49,7 @@ namespace xAPI.Standard
         /// Initializes a new instance of the <see cref="About"/> class.
         /// </summary>
         /// <param name="json">The json.</param>
-        public About(StringOfJSON json) : this(json.toJObject())
+        public About(StringOfJSON json) : this(json.ToJObject())
         {
         }
 

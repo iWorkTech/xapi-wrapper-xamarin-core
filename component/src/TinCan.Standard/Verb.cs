@@ -48,7 +48,7 @@ namespace xAPI.Standard
         /// Initializes a new instance of the <see cref="Verb"/> class.
         /// </summary>
         /// <param name="json">The json.</param>
-        public Verb(StringOfJSON json) : this(json.toJObject())
+        public Verb(StringOfJSON json) : this(json.ToJObject())
         {
         }
 

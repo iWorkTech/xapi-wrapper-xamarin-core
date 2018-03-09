@@ -63,7 +63,7 @@ namespace xAPI.Standard
         /// Initializes a new instance of the <see cref="LanguageMap"/> class.
         /// </summary>
         /// <param name="json">The json.</param>
-        public LanguageMap(StringOfJSON json) : this(json.toJObject())
+        public LanguageMap(StringOfJSON json) : this(json.ToJObject())
         {
         }
 
