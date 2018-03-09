@@ -93,10 +93,6 @@ namespace xAPIWrapper
         /// <exception cref="T:System.NotImplementedException"></exception>
         public void ChangeConfig(string endpoint, string username, string password)
         {
-            _endpoint = string.IsNullOrWhiteSpace(username) ? "https://lrs.adlnet.gov/xAPI/" : endpoint;
-            _username = string.IsNullOrWhiteSpace(username) ? "Nja986GYE1_XrWMmFUE" : username;
-            _password = string.IsNullOrWhiteSpace(password) ? "Bd9lDr1kjaWWY6RID_4" : password;
-
             _lrs = new RemoteLRS(_endpoint, _username, _password);
         }
 
@@ -135,7 +131,7 @@ namespace xAPIWrapper
 
             var verbLocal = new Verb
             {
-                ID = new Uri(string.Format("http://adlnet.gov/expapi/verbs/{0}", verb)),
+                ID = new Uri(string.Format("https://w3id.org/xapi/adl/verbs/{0}", verb)),
                 Display = new LanguageMap()
             };
 

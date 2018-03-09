@@ -96,7 +96,7 @@ namespace xAPI.Standard.Tests
                 HomePage = new Uri("http://tincanapi.com/")
             }};
 
-            Verb = new Verb("http://adlnet.gov/expapi/verbs/experienced") { Display = new LanguageMap() };
+            Verb = new Verb("https://w3id.org/xapi/adl/verbs/experienced") { Display = new LanguageMap() };
             Verb.Display.Add("en-US", "experienced");
 
             Activity = new Activity

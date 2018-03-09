@@ -71,7 +71,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public void TestJObjectCtr()
         {
-            var id = "http://adlnet.gov/expapi/verbs/experienced";
+            var id = "https://w3id.org/xapi/adl/verbs/experienced";
 
             var cfg = new JObject { { "id", id } };
 
@@ -86,7 +86,7 @@ namespace xAPI.Standard.Tests
         [Fact]
         public void TestStringOfJSONCtr()
         {
-            var id = "http://adlnet.gov/expapi/verbs/experienced";
+            var id = "https://w3id.org/xapi/adl/verbs/experienced";
             var json = "{\"id\":\"" + id + "\"}";
             var strOfJson = new StringOfJSON(json);
 

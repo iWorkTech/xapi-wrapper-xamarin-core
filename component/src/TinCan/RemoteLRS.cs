@@ -299,7 +299,7 @@ namespace xAPI
                 Actor = agent,
                 Verb = new Verb
                 {
-                    ID = new Uri("http://adlnet.gov/expapi/verbs/voided"),
+                    ID = new Uri("https://w3id.org/xapi/adl/verbs/voided"),
                     Display = new LanguageMap()
                 },
                 Target = new StatementRef {ID = id}
@@ -322,7 +322,7 @@ namespace xAPI
                 Actor = agent,
                 Verb = new Verb
                 {
-                    ID = new Uri("http://adlnet.gov/expapi/verbs/voided"),
+                    ID = new Uri("https://w3id.org/xapi/adl/verbs/voided"),
                     Display = new LanguageMap()
                 },
                 Target = new StatementRef {ID = id}

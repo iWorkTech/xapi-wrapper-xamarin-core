@@ -828,7 +828,7 @@ namespace xAPI.Standard.Tests
             var lrsRes = _lrs.VoidStatement(toVoid, Supports.Agent);
 
             Assert.True(lrsRes.Success, "LRS response successful");
-            Assert.Equal(new Uri("http://adlnet.gov/expapi/verbs/voided"), lrsRes.Content.Verb.ID);
+            Assert.Equal(new Uri("https://w3id.org/xapi/adl/verbs/voided"), lrsRes.Content.Verb.ID);
             Assert.Equal(toVoid, ((StatementRef)lrsRes.Content.Target).ID);
         }
 
@@ -843,7 +843,7 @@ namespace xAPI.Standard.Tests
             var lrsRes = await _lrs.VoidStatementAsync(toVoid, Supports.Agent).ConfigureAwait(false);
 
             Assert.True(lrsRes.Success, "LRS response successful");
-            Assert.Equal(new Uri("http://adlnet.gov/expapi/verbs/voided"), lrsRes.Content.Verb.ID);
+            Assert.Equal(new Uri("https://w3id.org/xapi/adl/verbs/voided"), lrsRes.Content.Verb.ID);
             Assert.Equal(toVoid, ((StatementRef)lrsRes.Content.Target).ID);
         }
     }
