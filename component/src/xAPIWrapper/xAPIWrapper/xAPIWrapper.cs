@@ -137,7 +137,7 @@ namespace xAPIWrapper
 
             verbLocal.Display.Add("en-US", "experienced");
 
-            var target = new Activity { ID = string.Format("http://adlnet.gov/expapi/activities/{0}", activityType) };
+            var target = new Activity { ID = string.Format("http://activitystrea.ms/schema/1.0/{0}", activityType) };
 
             var statement = new Statement
             {

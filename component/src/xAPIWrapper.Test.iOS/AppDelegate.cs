@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
 using UIKit;
-using MonoTouch.NUnit.UI;
+
 
 namespace xAPIWrapper.Test.iOS
 {
@@ -16,7 +12,6 @@ namespace xAPIWrapper.Test.iOS
     {
         // class-level declarations
         UIWindow window;
-        TouchRunner runner;
 
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
@@ -29,12 +24,6 @@ namespace xAPIWrapper.Test.iOS
         {
             // create a new window instance based on the screen size
             window = new UIWindow(UIScreen.MainScreen.Bounds);
-            runner = new TouchRunner(window);
-
-            // register every tests included in the main application/assembly
-            runner.Add(System.Reflection.Assembly.GetExecutingAssembly());
-
-            window.RootViewController = new UINavigationController(runner.GetViewController());
 
             // make the window visible
             window.MakeKeyAndVisible();
