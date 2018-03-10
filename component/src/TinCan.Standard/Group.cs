@@ -41,7 +41,7 @@ namespace xAPI.Standard
         /// <summary>
         /// The object type
         /// </summary>
-        public static readonly new string OBJECT_TYPE = "Group";
+        public new static readonly string OBJECT_TYPE = "Group";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Group"/> class.

@@ -502,7 +502,7 @@ namespace xAPI.Standard.Tests
             var doc = new ActivityProfileDocument
             {
                 Activity = Supports.Activity,
-                ID = "Test",
+                ID = "http://tincanapi.com/TinCanCSharp/Test/Unit/0",
                 Content = Encoding.UTF8.GetBytes("Test value")
             };
 
@@ -537,11 +537,8 @@ namespace xAPI.Standard.Tests
             var doc = new AgentProfileDocument
             {
                 Agent = Supports.Agent,
-                ID = Guid.NewGuid().ToString(),
+                ID = "http://tincanapi.com/TinCanCSharp/Test/Unit/0",
                 Content = Encoding.UTF8.GetBytes("Test value"),
-                Etag = "1234567890", 
-                ContentType = "text", 
-                Timestamp = DateTime.Now
             };
 
             var lrsRes = _lrs.SaveAgentProfile(doc);
@@ -558,11 +555,8 @@ namespace xAPI.Standard.Tests
             var doc = new AgentProfileDocument
             {
                 Agent = Supports.Agent,
-                ID = Guid.NewGuid().ToString(),
+                ID = "http://tincanapi.com/TinCanCSharp/Test/Unit/0",
                 Content = Encoding.UTF8.GetBytes("Test value"),
-                Etag = "1234567890", 
-                ContentType = "text", 
-                Timestamp = DateTime.Now
             };
 
             var lrsRes = await _lrs.SaveAgentProfileAsync(doc).ConfigureAwait(false);
