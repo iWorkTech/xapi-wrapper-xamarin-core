@@ -87,11 +87,11 @@ namespace xAPI.Standard
         /// <value>The identifier.</value>
         public string ID
         {
-            get { return _id; }
+            get => _id;
             set
             {
                 var uri = new Uri(value);
-                _id = value;
+                _id = uri.ToString();
             }
         }
 

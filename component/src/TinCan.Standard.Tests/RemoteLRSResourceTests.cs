@@ -502,12 +502,8 @@ namespace xAPI.Standard.Tests
             var doc = new ActivityProfileDocument
             {
                 Activity = Supports.Activity,
-                ID = Guid.NewGuid().ToString(),
-                Content = Encoding.UTF8.GetBytes("Test value"), 
-                Etag = "1234567890", 
-                ContentType = "text", 
-                Timestamp = DateTime.Now
-          
+                ID = "Test",
+                Content = Encoding.UTF8.GetBytes("Test value")
             };
 
             var lrsRes = _lrs.SaveActivityProfile(doc);
@@ -524,11 +520,8 @@ namespace xAPI.Standard.Tests
             var doc = new ActivityProfileDocument
             {
                 Activity = Supports.Activity,
-                ID = Guid.NewGuid().ToString(),
+                ID = "Test",
                 Content = Encoding.UTF8.GetBytes("Test value"),
-                Etag = "1234567890", 
-                ContentType = "text", 
-                Timestamp = DateTime.Now
             };
 
             var lrsRes = await _lrs.SaveActivityProfileAsync(doc).ConfigureAwait(false);

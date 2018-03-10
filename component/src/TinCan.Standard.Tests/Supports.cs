@@ -101,7 +101,7 @@ namespace xAPI.Standard.Tests
 
             Activity = new Activity
             {
-                ID = "http://tincanapi.com/TinCanCSharp/Test/Unit/0",
+                ID = "http://tincanapi.com/TinCanCSharp/Test/Unit/0", 
                 Definition = new ActivityDefinition
                 {
                     Type = new Uri("http://id.tincanapi.com/activitytype/unit-test"),
